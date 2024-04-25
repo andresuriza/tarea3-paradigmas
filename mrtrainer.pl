@@ -4,6 +4,7 @@
 % conversación
 mrtrainer:-
 	print_welcome,
+	flush_output,
 	conversations.
 
 % Regla que escoge aleatoriamente un mensaje de bienvenida
@@ -27,6 +28,10 @@ conversations:-
 
 my_icon('MrTrainer').
 user_icon('Cliente').
+
+% Regla que imprime mensaje de lista en terminal
+write_list([]):- nl.
+write_list([H|T]):- write(H), write(' '), write_list(T).
 
 % Regla que llama al nombre del usuario chat para simular interfaz de
 % chat
@@ -116,34 +121,49 @@ gen_reply(S, R):-
 	responses_db(bye, Res),
 	random_pick(Res, R).
 
+% Regla que regresa a partir de una lista el valor del índice
+% especificado
 nth_item([H|_], 1, H).
 nth_item([_|T], N, X):-
 	nth_item(T, N1, X),
 	N is N1 + 1.
 
+% Regla que escoge un valor aleatorio de una lista y lo retorna
 random_pick(Res, R):-
 	length(Res, Length),
 	Upper is Length + 1,
 	random(1, Upper, Rand),
 	nth_item(Res, Rand, R).
 
-readrest(63,[]):-!.
-readrest(33,[]):-!.
-readrest(10,[]):-!.
+% Llama recursivamente la palabra para leer sus letras
+readrest(63,[]):- !.
+readrest(33,[]):- !.
+readrest(10,[]):- !.
 readrest(K,[K1|U]):- K=<32,!,get_code(K1),readrest(K1,U).
 readrest(_K1,[K2|U]):- get_code(K2),readrest(K2,U).
 
-
+% Regla que verifica si lista es miembro de otra lista
 subset([], _).
 subset([H|T], L2):-
 	member(H, L2),
 	subset(T, L2).
 
+% Regla que verifica si se mandó mensaje de despedida en la oración
 is_quit(S):-
-	subset([bye], S).
+	%subset([bye], S).
+	member('bye', S);
+	member('adios', S);
+	member('Adios', S);
+	member('listo', S);
+	member('Listo', S);
+	member('Chao', S);
+	member('chao', S).
+
+% Regla que verifica si hay signo de pregunta en la oración
 is_question(S):-
 	member('?', S).
 
+% Posibles mensajes de saludo de mrtrainer
 responses_db(greeting, [
 	['Cuénteme ¿En qué lo puedo ayudar?'],
 	['Hola, listo para ayudar'],
@@ -151,24 +171,24 @@ responses_db(greeting, [
 	['Hola soy Mr. Trainer, a su servicio']
 	]).
 
+% Posibles mensajes de despedida de mrtrainer
 responses_db(bye, [
 	['Espero que haya sido de ayuda, ¡suerte!'],
 	['Que tengas buen día'],
 	['¡Hasta luego!']
 	]).
 
+% Posibles respuestas de preguntas
 responses_db(random_q, [
 	['No estoy seguro, pregúntame algo distinto'],
 	['No tengo conocimiento de eso, ¡disculpa!']
 	]).
 
+% Oraciones conectoras
 responses_db(random_s, [
 	['Disculpa, no entendí lo que dices'],
 	['¿Podrías repetir eso?'],
 	['No estoy seguro de entender eso']
 	]).
-
-write_list([]):- nl.
-write_list([H|T]):- write(H), write(' '), write_list(T).
 
 ?-mrtrainer. % Ejecuta el programa
