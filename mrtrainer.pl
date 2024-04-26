@@ -3,8 +3,6 @@
 % Regla principal que llama mensaje de bienvenida y procesa la
 % conversación
 mrtrainer:-
-	%print_welcome,
-	%flush_output,
 	conversations.
 
 % Regla que crea un loop para procesar la conversación hasta que el
@@ -45,8 +43,10 @@ read_in(P):- initread(L), words(P, L, []).
 % resto de la lista
 initread([K1,K2|U]):- get_code(K1),get_code(K2),readrest(K2,U).
 
+% ---------------Reglas que procesan la lectura de caracteres-------
+
 % ------ REVISAR --------------
-%  Crea atoms?
+% Crea atoms?
 my_filter([],[]).
 my_filter(['\n'|T], R):- !, my_filter(T, R).
 my_filter([nb(2), X|T], [Rm|R]):-
@@ -98,14 +98,19 @@ digit(K):- K>47, K<58.
 lc(K,K1):- K>64,K<91,!,K1 is K+32.
 lc(K,K):- K>96,K<123.
 
+% Llama recursivamente la palabra para leer sus letras
+readrest(63,[]):- !.
+readrest(33,[]):- !.
+readrest(10,[]):- !.
+readrest(K,[K1|U]):- K=<32,!,get_code(K1),readrest(K1,U).
+readrest(_K1,[K2|U]):- get_code(K2),readrest(K2,U).
+
+% --Reglas que procesan entrada del usuario y respuesta de mrtrainer
+
 % Respuesta si mrtrainer no entiende entrada
-%gen_reply(S, R):-
-%	\+ is_question(S),
-%	\+ is_quit(S),
-%	\+ is_thanks(S),
-%	\+ is_greeting(S), !,
-%	responses_db(random_s, Res),
-%	random_pick(Res, R).
+% gen_reply(S, R):-
+% \+ is_question(S), \+ is_quit(S), \+ is_thanks(S), \+ is_greeting(S),
+% !, responses_db(random_s, Res), random_pick(Res, R).
 
 % Respuesta si usuario dijo algún tipo de saludo
 gen_reply(S, R):-
@@ -126,25 +131,25 @@ gen_reply(S, R):-
 	random_pick(Res, R).
 
 gen_reply(S, R):-
-	question(Tree2, S, _Rest), 
+	question(Tree2, S, _Rest),
 	mapping(s2name,Tree1, Tree2), !,
 	sentence(Tree1, Rep,[]),
 	append(Rep, ['!'], R).
 
 gen_reply(S, R):-
-	question(Tree2, S, _Rest), !, 
+	question(Tree2, S, _Rest), !,
 	mapping(s2how,Tree1, Tree2),
 	sentence(Tree1, Rep,[]), !,
 	append(Rep, ['!'], R).
 
 gen_reply(S, R):-
-	sentence(Tree1, S, _Rest), !, 
-	mapping(s2why,Tree1, Tree2), % Respuesta de mrtrainer
+	sentence(Tree1, S, _Rest), !,
+	mapping(s2why,Tree1, Tree2),
 	question(Tree2, Rep,[]),
 	append(Rep, ['?'], R).
 
 gen_reply(S, R):-
-	question(Tree2, S, _Rest), !, 
+	question(Tree2, S, _Rest), !,
 	mapping(s2q,Tree1, Tree2),
 	sentence(Tree1, Rep,[]),
 	append([yes, ','|Rep], ['!'], R).
@@ -163,32 +168,15 @@ random_pick(Res, R):-
 	random(1, Upper, Rand),
 	nth_item(Res, Rand, R).
 
-% Llama recursivamente la palabra para leer sus letras
-readrest(63,[]):- !.
-readrest(33,[]):- !.
-readrest(10,[]):- !.
-readrest(K,[K1|U]):- K=<32,!,get_code(K1),readrest(K1,U).
-readrest(_K1,[K2|U]):- get_code(K2),readrest(K2,U).
-
-% Regla que verifica si lista es miembro de otra lista
-subset([], _).
-subset([H|T], L2):-
-	member(H, L2),
-	subset(T, L2).
-
-sentence(s(X,Y, is, Z)) --> belonging_phrase(X), abstract_noun(Y),  
+% ------------ Definiciones de Definite Clause Grammar para
+% gramática libre de contexto ------------------------
+sentence(s(X,Y, is, Z)) --> belonging_phrase(X), abstract_noun(Y),
                               [is],  special_noun(Z).
 
-sentence(s(X, Y, Z)) --> subject_pronoun(X), indicative_verb(Y), 
+sentence(s(X, Y, Z)) --> subject_pronoun(X), indicative_verb(Y),
                          adjective(Z).
 
 sentence(s(X, Y, Z)) --> subject_phrase(X), verb(Y), object_phrase(Z).
-
-sentence(s(X, Y, Z)) --> question(X), determiner(Y), place_name(Z).
-
-sentence(s(X, Y)) --> determiner(X), place_name(Y).
-
-sentence(s(X, Y)) --> subject_tobe_verb(X), prepositional_phrase(Y).
 
 sentence(s(X, Y, Z)) --> question(X), object_pronoun(Y), noun(Z).
 
@@ -200,17 +188,6 @@ abstract_noun(abs_noun(name)) --> [name].
 special_noun(sp_noun(justin)) --> [justin].
 special_noun(sp_noun(frank)) --> [frank].
 
-place_name(pname(reception)) --> [reception].
-place_name(pname(cafe)) --> [cafe].
-place_name(pname(toilet)) --> [toilet].
-place_name(pname(vending_machines)) --> [vending_machines].
-place_name(pname(lockers)) --> [lockers].
-place_name(pname(exit)) --> [exit].
-place_name(pname(london)) --> [london].
-place_name(pname(bristol)) --> [bristol].
-place_name(pname(exeter)) --> [exeter].
-place_name(pname(X)) --> [X], { next(X,_,_,_,_) }.
-
 subject_phrase(sp(X)) --> subject_pronoun(X).
 subject_phrase(sp(X)) --> noun_phrase(X).
 
@@ -219,13 +196,6 @@ object_phrase(op(X, Y)) --> object_pronoun(X), adverb(Y).
 
 noun_phrase(np(X, Y)) --> determiner(X), noun(Y).
 noun_phrase(np(Y)) --> noun(Y).
-
-prepositional_phrase(pp(X, Y)) --> preposition(X), place_name(Y).
-
-preposition(prep(in)) --> [in].
-preposition(prep(at)) --> [at].
-preposition(prep(from)) --> [from].
-
 
 subject_pronoun(spn(i)) --> [i].
 subject_pronoun(spn(we)) --> [we].
@@ -271,10 +241,6 @@ verb(vb(is)) --> [is].
 indicative_verb(ivb(are)) --> [are].
 indicative_verb(ivb(am)) --> [am].
 
-subject_tobe_verb(s_2b([you, are])) --> [you, are].
-subject_tobe_verb(s_2b([i,am])) --> [i, am].
-subject_tobe_verb(s_2b([we, are])) --> [we, are].
-
 adjective(adj(great)) --> [great].
 adjective(adj(good)) --> [good].
 adjective(adj(fine)) --> [fine].
@@ -283,30 +249,30 @@ question(q(why,do,S)) --> [why, do], sentence(S).
 question(q(do,S)) --> [do], sentence(S).
 
 question(q(X, Y, Z)) --> adverb(X), indicative_verb(Y), subject_pronoun(Z).
-question( q( what, is, X, Y ) ) -->  [what, is],  belonging_phrase(X),  
-                                     abstract_noun(Y).   
+question( q( what, is, X, Y ) ) -->  [what, is],  belonging_phrase(X),
+                                     abstract_noun(Y).
 
-mapping(s2why, 
+mapping(s2why,
         s(sp(spn(N1)),vb(V),op(opn(N2),ad(X))),
-        q(why,do,s(sp(spn(P1)),vb(V),op(opn(P2),ad(X)))) 
-        ) :- 
-        mapping_spn(N1, P1), mapping_opn(N2, P2). 
+        q(why,do,s(sp(spn(P1)),vb(V),op(opn(P2),ad(X))))
+        ) :-
+        mapping_spn(N1, P1), mapping_opn(N2, P2).
 mapping(s2why,
         s(sp(spn(N1)),vb(V),op(np(noun(N2)),ad(X))),
-        q(why,do,s(sp(spn(P1)),vb(V),op(np(noun(N2)),ad(X)))) 
-        ) :- 
+        q(why,do,s(sp(spn(P1)),vb(V),op(np(noun(N2)),ad(X))))
+        ) :-
         mapping_spn(N1, P1).
 
 
 mapping(s2q,
         s(sp(spn(N1)),vb(V),op(opn(N2),ad(X))),
-        q(do,s(sp(spn(P1)),vb(V),op(opn(P2),ad(X)))) 
-        ) :- 
-        mapping_spn(N1, P1), mapping_opn(N2, P2). 
+        q(do,s(sp(spn(P1)),vb(V),op(opn(P2),ad(X))))
+        ) :-
+        mapping_spn(N1, P1), mapping_opn(N2, P2).
 mapping(s2q,
         s(sp(spn(N1)),vb(V),op(np(noun(N2)),ad(X))),
-        q(do,s(sp(spn(P1)),vb(V),op(np(noun(N2)),ad(X)))) 
-        ) :- 
+        q(do,s(sp(spn(P1)),vb(V),op(np(noun(N2)),ad(X))))
+        ) :-
         mapping_spn(N1, P1).
 
 mapping(s2name,
@@ -330,9 +296,6 @@ mapping_noun(frank, name).
 mapping_indicative(are, am).
 mapping_indicative(am, are).
 
-mapping_ad(how, fine).
-mapping_ad(fine, how).
-
 mapping_spn(i, you).
 mapping_spn(you, i).
 
@@ -345,6 +308,8 @@ intersect([H|T1], L2, [H|T3]):-
         intersect(T1, L2, T3).
 intersect([_|T1], L2, L3):-
         intersect(T1, L2, L3).
+
+% ----------- Reglas para manejar condiciones de mensaje ---------
 
 % Regla que verifica si se mandó mensaje de despedida en la oración
 is_quit(S):-
@@ -368,6 +333,7 @@ is_greeting(S):-
 	intersect(S, D, A),
 	A \== [].
 
+% -------- Bases de datos de respuestas y palabras clave ----------
 % Posibles palabras clave de saludo
 greeting_db([
 	hola,
@@ -399,7 +365,7 @@ responses_db(greeting, [
 	['Buenas, cómo está?'],
 	['Hola soy Mr. Trainer, a su servicio']
 	]).
-	
+
 % Posibles respuestas a gracias de mrtrainer
 responses_db(gracias, [
 	['Con mucho gusto'],
@@ -426,69 +392,5 @@ responses_db(random_s, [
 	['¿Podrías repetir eso?'],
 	['No estoy seguro de entender eso']
 	]).
-
-% --- Eliminar -----------------------------
-next('exit2', '2q56', east, right, 5).          
-next('2q56', 'exit2', west, right, 5).          
-next('exit1', 'area1', west, right, 2).
-next('area1', 'exit1', east, right, 2).
-next('exit2', 'exit1', west, right, 1).
-next('exit1', 'exit2', east, right, 1).
-next('area1', 'exit3', west, front, 2).
-next('exit3', 'area1', east, left, 2).
-next('2q56', '2q4', east, left, 3).
-next('2q4', '2q56', west, left, 3).
-next('junt2', 'junt1', west, front, 5).
-next('junt1', 'junt2', east, right, 5).
-next('2q4', 'junt1', east, front, 1).
-next('junt1', '2q4', west, right, 1).
-next('junt1', '2q5', north, left, 2).
-next('2q5', 'junt1', south, front, 2).
-next('2q5', '2q6', north, left, 5).
-next('2q6', '2q5', south, right, 5).
-next('2q6', '2q31', north, right, 4).
-next('2q31', '2q6', south, right, 4).           
-next('2q31', '2q30', north, right, 5).
-next('2q30', '2q31', south, left, 5).
-next('2q30', '2q9', north, left, 2).
-next('2q9', '2q30', south, left, 2).            
-next('2q9', '2q29', north, right, 2).
-next('2q29', '2q9', south, right, 2).           
-next('2q29', 'exit5', north, left, 1).
-next('exit5', '2q29', south, left, 1).          
-next('exit5', 'junt3', north, front, 12).
-next('junt3', 'exit5', south, right, 12).
-next('junt3', '2q23', north, right, 6).
-next('2q23', 'junt3', south, front, 6).
-next('2q23', '2q21', north, right, 1).
-next('2q21', '2q23', south, left, 1).
-next('2q21', 'exit6', north, front, 1).
-next('exit6', '2q21', south, left, 1).
-next('junt3', 'area2', east, right,10).
-next('area2', 'junt3', west, front,10).
-next('area2', '2q24', east, left,2).
-next('2q24', 'area2', west, left,2).            
-next('2q24', '2q25', east, left,4).
-next('2q25', '2q24', west, right,4).
-next('junt2','2q52', south, right,3).
-next('2q52', 'junt2', north, front,3).
-next('2q52', '2q50', south, right, 6).
-next('2q50', '2q52', north, left, 6).
-next('2q50', '2q42', south, left, 4).
-next('2q42', '2q50', north, left, 4).           
-next('2q42', '2q43', south, left, 2).
-next('2q43', '2q42', north, right, 2).
-next('2q43', '2q49', south, right, 1).
-next('2q49', '2q43', north, right, 1).          
-next('2q49', 'area3', south, left, 1).
-next('area3', '2q49', north, left, 1).
-next('area3', '2q46', south, left, 3).
-next('2q46', 'area3', north, right, 3).
-next('2q46', '2q47', south, left, 2).
-next('2q47', '2q46', north, right, 2).
-next('2q47', '2q48', south, right, 2).
-next('2q48', '2q47', north, right, 2).
-next('2q48', 'exit4', south, front, 2).
-next('exit4', '2q48', north, left, 2).          
 
 ?-mrtrainer. % Ejecuta el programa
