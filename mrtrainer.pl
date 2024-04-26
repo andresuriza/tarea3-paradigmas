@@ -3,17 +3,9 @@
 % Regla principal que llama mensaje de bienvenida y procesa la
 % conversación
 mrtrainer:-
-	print_welcome,
+	%print_welcome,
 	flush_output,
 	conversations.
-
-% Regla que escoge aleatoriamente un mensaje de bienvenida
-print_welcome:-
-	responses_db(greeting, D),
-	random_pick(D, W),
-	print_prompt(me),
-	write_list(W),
-	flush_output.
 
 % Regla que crea un loop para procesar la conversación hasta que el
 % usuario se despida
@@ -106,16 +98,28 @@ digit(K):- K>47, K<58.
 lc(K,K1):- K>64,K<91,!,K1 is K+32.
 lc(K,K):- K>96,K<123.
 
+% Respuesta si mrtrainer no entiende entrada
 gen_reply(S, R):-
-	\+ is_question(S), \+ is_quit(S), !,
-	responses_db(random_q, Res),
-	random_pick(Res, R).
-
-gen_reply(S, R):-
-	is_question(S), !,
+	\+ is_question(S),
+	\+ is_quit(S),
+	\+ is_thanks(S),
+	\+ is_greeting(S), !,
 	responses_db(random_s, Res),
 	random_pick(Res, R).
 
+% Respuesta si usuario dijo algún tipo de saludo
+gen_reply(S, R):-
+	is_greeting(S), !,
+	responses_db(greeting, Res),
+	random_pick(Res, R).
+
+% Respuesta si usuario dijo algún tipo de gracias
+gen_reply(S, R):-
+	is_thanks(S), !,
+	responses_db(gracias, Res),
+	random_pick(Res, R).
+
+% Respuesta si usuario dijo algún tipo de despedida
 gen_reply(S, R):-
 	is_quit(S), !,
 	responses_db(bye, Res),
@@ -148,20 +152,58 @@ subset([H|T], L2):-
 	member(H, L2),
 	subset(T, L2).
 
+intersect([], _, []).
+intersect([H|T1], L2, [H|T3]):-
+        member(H, L2), !,
+        intersect(T1, L2, T3).
+intersect([_|T1], L2, L3):-
+        intersect(T1, L2, L3).
+
 % Regla que verifica si se mandó mensaje de despedida en la oración
 is_quit(S):-
-	%subset([bye], S).
-	member('bye', S);
-	member('adios', S);
-	member('Adios', S);
-	member('listo', S);
-	member('Listo', S);
-	member('Chao', S);
-	member('chao', S).
+	despedida_db(D),
+	intersect(S, D, A),
+	A \== [].
+
+% Regla que verifica si se mandó mensaje de gracias en la oración
+is_thanks(S):-
+	gracias_db(D),
+	intersect(S, D, A),
+	A \== [].
 
 % Regla que verifica si hay signo de pregunta en la oración
 is_question(S):-
 	member('?', S).
+
+% Regla que verifica si se mandó mensaje de saludo en la oración
+is_greeting(S):-
+	greeting_db(D),
+	intersect(S, D, A),
+	A \== [].
+
+% Posibles palabras clave de saludo
+greeting_db([
+	hola,
+	buenas,
+	buenos,
+	saludos
+	]).
+
+% Posibles palabras clave de despedida
+despedida_db([
+	adios,
+	listo,
+	estariamos,
+	chao,
+	solamente
+	]).
+
+% Posibles palabras clave de gracias
+gracias_db([
+	gracias,
+	agradecido,
+	agradecida
+	]).
 
 % Posibles mensajes de saludo de mrtrainer
 responses_db(greeting, [
@@ -169,6 +211,13 @@ responses_db(greeting, [
 	['Hola, listo para ayudar'],
 	['Buenas, cómo está?'],
 	['Hola soy Mr. Trainer, a su servicio']
+	]).
+	
+% Posibles respuestas a gracias de mrtrainer
+responses_db(gracias, [
+	['Con mucho gusto'],
+	['¡Con gusto! Cualquier otra consulta, estoy a tu servicio'],
+	['El placer es mío']
 	]).
 
 % Posibles mensajes de despedida de mrtrainer
