@@ -12,12 +12,12 @@ mrtrainer:-
 % usuario se despida
 inicio_conversacion:-
 	repeat,
-	print_prompt(you), %impresion de palabra "cliente en pantalla"
-	readin(S),
-	gen_respuesta(S,R),
-	print_prompt(me),
-	write_list(R),
-	despedida(S), !, halt.
+	imprimir_nombre(tu), %impresion de palabra "cliente en pantalla"
+	oracion_input(Input),
+	gen_respuesta(Input,Respuesta),
+	imprimir_nombre(yo),
+	write_list(Respuesta),
+	despedida(Input), !, halt.
 
 mr_trainer('MrTrainer').
 cliente('Cliente').
@@ -28,19 +28,19 @@ write_list([H|T]):- write(H), write(' '), write_list(T).
 
 % Regla que llama al name del usuario chat para simular interfaz de
 % chat
-print_prompt(me):- %impresion de "mr trainer en pantalla"
+imprimir_nombre(yo):- %impresion de "mr trainer en pantalla"
         mr_trainer(X), write(X), write(': '), flush_output.
 
 % Regla que llama al name del usuario que utiliza el programa para
 % simular interfaz de chat
-print_prompt(you):-
+imprimir_nombre(tu):-
         cliente(X), write(X), write(': '), flush_output.
 
-% Regla que identifica el mensaje del usuario
-readin(S):- read_in(L), mi_filter(L,S).
+% Regla que procesa la entrada del usuario.
+oracion_input(Input):- oracion_input_aux(L), filtro_input(L,Input).
 
-% lee la entrada y la unifica en una lista
-read_in(P):- initread(L), words(P, L, []).
+% Regla auxiliar a oracion_input que recibe oraciÃ³n filtrada y la convierte en una lista.
+oracion_input_aux(P):- initread(L), palabras(P, L, []).
 
 % Lee el primer y segundo caracter ingresado por el usuario, llama a leer el
 % resto de la lista
@@ -48,46 +48,47 @@ initread([K1,K2|U]):- get_code(K1),get_code(K2),leer_resto(K2,U).
 
 % ---------------Reglas que procesan la lectura de caracteres-------
 
-% ------ REVISAR --------------
-% Crea atoms?
-mi_filter([],[]).
-mi_filter(['\n'|T], R):- !, mi_filter(T, R).
-mi_filter([nb(2), X|T], [Rm|R]):-
+% Regla que revisa cada elemento de una lista que corresponde a un
+% carácter de la oración y retorna una lista que contiene cada palabra.
+filtro_input([],[]).
+filtro_input(['\n'|T], Respuesta):- !, filtro_input(T, Respuesta).
+filtro_input([num(2), X|T], [Rm|Respuesta]):-
 		name(X, CharList),
-        q_follonosotrosd_by_nb(CharList),!,
+        check_chars(CharList),!,
         name(Rm, [50 | CharList]),
-        mi_filter(T, R).
-mi_filter([X|T], [X|R]):-
-        mi_filter(T, R).
+        filtro_input(T, Respuesta).
+filtro_input([X|T], [X|Respuesta]):-
+        filtro_input(T, Respuesta).
 
 % Si se recibe oraciï¿½n, procesar palabras recursivamente
-words([V|U]) --> word(V),!, blanks, words(U).
+palabras([V|U]) --> palabras_aux(V),!, blanks, palabras(U).
 % Si no hay nada, regresa vacï¿½o
-words([]) --> [].
+palabras([]) --> [].
 
-% Procesa palabra en ASCII,
-word(U1) --> [K],{lc(K,K1)},!,alphanums(U2),{name(U1,[K1|U2])}.
-word(nb(N)) --> [K],{digit(K)},!,digits(U),{name(N,[K|U])}.
-word(V) --> [K],{name(V,[K])}.
+% Procesa palabra en ASCII
+palabras_aux(U1) --> [K],{convert_char(K,K1)},!,alfanum(U2),{name(U1,[K1|U2])}.
+palabras_aux(num(N)) --> [K],{digit(K)},!,digito(U),{name(N,[K|U])}.
+palabras_aux(V) --> [K],{name(V,[K])}.
 
 % Genera recursivamente caracteres alfanumï¿½ricos en base a los cï¿½digos
 % recibidos
-alphanums([K1|U]) --> [K],{alphanum(K,K1)},!,alphanums(U).
-alphanums([]) --> [].
+alfanum([K1|U]) --> [K],{alfanum_aux(K,K1)},!,alfanum(U).
+alfanum([]) --> [].
 
-% REVISAR
-alphanum(95,95) :- !.
-alphanum(K,K1):- lc(K,K1).
-% REVISAR
-alphanum(K,K):- digit(K).
+% Regla que llama a digit para verificar el elemento y luego utilizando 
+% convert_char realiza la suma necesaria para obtener el carÃ¡cter alfanumÃ©rico.
+alfanum_aux(95,95) :- !.
+alfanum_aux(K,K1):- convert_char(K,K1).
+alfanum_aux(K,K):- digit(K).
 
 % Si es un espacio o otra seï¿½al desconocida
 blanks --> [K], {K=<32},!, blanks.
-% De lo contrario, blanks son vacï¿½os
+% De lo contrario, son vacï¿½os
 blanks --> [].
 
-% REVISAR
-q_follonosotrosd_by_nb([113, X|_]):- digit(X).
+% Regla que procesa 113 caracteres como mÃ¡ximo mientras estÃ©n dentro 
+% del rango ASCII del abecedario.
+check_chars([113, X|_]):- digit(X).
 
 % Si el caracter es un nï¿½mero, se retorna
 digits([K|U]) --> [K],{digit(K)},!,digits(U).
@@ -98,8 +99,8 @@ digits([]) --> [].
 digit(K):- K>47, K<58.
 
 % Procesa letras en ASCII, mayï¿½sculas y minï¿½sculas
-lc(K,K1):- K>64,K<91,!,K1 is K+32.
-lc(K,K):- K>96,K<123.
+convert_char(K,K1):- K>64,K<91,!,K1 is K+32.
+convert_char(K,K):- K>96,K<123.
 
 % Llama recursivamente la palabra para leer sus letras
 leer_resto(63,[]):- !.
@@ -108,62 +109,36 @@ leer_resto(10,[]):- !.
 leer_resto(K,[K1|U]):- K=<32,!,get_code(K1),leer_resto(K1,U).
 leer_resto(_K1,[K2|U]):- get_code(K2),leer_resto(K2,U).
 
-% --Reglas que procesan entrada del usuario y respuesta de mrtrainer
+% --Reglas que procesan entrada del usuario y Respuesta de mrtrainer
 
 % Respuesta si mrtrainer no entiende entrada
-% gen_respuesta(S, R):-
-% \+ questionamiento(S), \+ despedida(S), \+ agradecimiento(S), \+ saludando(S),
-% !, respuestas_db(random_s, Res), selec_rand(Res, R).
+gen_respuesta(Input, Respuesta):-
+\+ despedida(Input), \+ agradecimiento(Input), \+ saludando(Input), \+ oracion(Tree1, Input, _Rest),!,
+respuestas_db(conector, Res), selec_rand(Res, Respuesta).
 
 % Respuesta si usuario dijo algï¿½n tipo de saludo
-gen_respuesta(S, R):-
-	saludando(S), !,
+gen_respuesta(Input, Respuesta):-
+	saludando(Input), !,
 	respuestas_db(saludo, Res),
-	selec_rand(Res, R).
+	selec_rand(Res, Respuesta).
 
 % Respuesta si usuario dijo algï¿½n tipo de gracias
-gen_respuesta(S, R):-
-	agradecimiento(S), !,
+gen_respuesta(Input, Respuesta):-
+	agradecimiento(Input), !,
 	respuestas_db(gracias, Res),
-	selec_rand(Res, R).
+	selec_rand(Res, Respuesta).
 
 % Respuesta si usuario dijo algï¿½n tipo de despedida
-gen_respuesta(S, R):-
-	despedida(S), !,
+gen_respuesta(Input, Respuesta):-
+	despedida(Input), !,
 	respuestas_db(bye, Res),
-	selec_rand(Res, R).
+	selec_rand(Res, Respuesta).
 
-%gen_respuesta(S, R):-
-%	question(Tree2, S, _Rest),
-%	mapping(s2name,Tree1, Tree2), !,
-%	oracion(Tree1, Rep,[]),
-%	append(Rep, ['!'], R).
-
-%gen_respuesta(S, R):-
-%	question(Tree2, S, _Rest), !,
-%	mapping(s2how,Tree1, Tree2),
-%	oracion(Tree1, Rep,[]), !,
-%	append(Rep, ['!'], R).
-
-%gen_respuesta(S, R):-
-	%oracion(Tree1, S, _Rest), !,
-	%mapping(s2why,Tree1, Tree2),
-	%question(Tree2, Rep,[]),
-	%append(Rep, ['?'], R).
-
-%gen_respuesta(S, R):-
-%	question(Tree2, S, _Rest), !,
-%	mapping(s2q,Tree1, Tree2),
-%	oracion(Tree1, Rep,[]),
-%	append([yes, ','|Rep], ['!'], R).
-
-
-	gen_respuesta(S, R):-
-		oracion(Tree1, S, _Rest), !,
-		mapping(inicio_ases,Tree1, Tree2),
-		question(Tree2, Rep,[]),
-		append(Rep, ['?'], R).
-
+gen_respuesta(Input, Respuesta):-
+	oracion(Tree1, Input, _Rest), !,
+	mapping(inicio_ases,Tree1, Tree2),
+	question(Tree2, Rep,[]),
+	append(Rep, ['?'], Respuesta).
 
 % Regla que regresa a partir de una lista el valor del ï¿½ndice
 % especificado
@@ -173,14 +148,14 @@ nth_item([_|T], N, X):-
 	N is N1 + 1.
 
 % Regla que escoge un valor aleatorio de una lista y lo retorna
-selec_rand(Res, R):-
+selec_rand(Res, Respuesta):-
 	length(Res, Length),
 	Upper is Length + 1,
 	random(1, Upper, Rand),
-	nth_item(Res, Rand, R).
+	nth_item(Res, Rand, Respuesta).
 
 % ------------ Definiciones de Definite Clause Grammar para
-% gramï¿½tica libre de contexto ------------------------
+% gramática libre de contexto ------------------------
 %oracion(s(X,Y, is, Z)) --> belonging_phrase(X), abstract_noun(Y),
                             % [is],  special_noun(Z).
 
@@ -273,7 +248,7 @@ question(q(X,Y,Z)) --> [excelente, iniciativa,iniciemos].
 
 
 mapping(inicio_ases,
-		s(sp(spn(X)),vb(Y1), noun(Z)),	
+		s(sp(spn(X)),vb(Y1), noun(Z)),
 		q(excelente,iniciativa,iniciemos)
 		).
 
@@ -294,35 +269,35 @@ mapping_opn(you,me).
 mapping_opn(me,you).
 
 %busca palabras clave
-intersect([], _, []).
-intersect([H|T1], L2, [H|T3]):-
+busq_clave([], _, []).
+busq_clave([H|T1], L2, [H|T3]):-
         member(H, L2), !,
-        intersect(T1, L2, T3).
-intersect([_|T1], L2, L3):-
-        intersect(T1, L2, L3).
+        busq_clave(T1, L2, T3).
+busq_clave([_|T1], L2, L3):-
+        busq_clave(T1, L2, L3).
 
 % ----------- Reglas para manejar condiciones de mensaje ---------
 
 % Regla que verifica si se mandï¿½ mensaje de despedida en la oraciï¿½n
-despedida(S):-
+despedida(Input):-
 	despedida_db(D),
-	intersect(S, D, A),
+	busq_clave(Input, D, A),
 	A \== [].
 
 % Regla que verifica si se mandï¿½ mensaje de gracias en la oraciï¿½n
-agradecimiento(S):-
+agradecimiento(Input):-
 	gracias_db(D),
-	intersect(S, D, A),
+	busq_clave(Input, D, A),
 	A \== [].
 
 % Regla que verifica si hay signo de pregunta en la oraciï¿½n
-questionamiento(S):-
-	member('?', S).
+cuestionamiento(Input):-
+	member('?', Input).
 
 % Regla que verifica si se mandï¿½ mensaje de saludo en la oraciï¿½n
-saludando(S):-
+saludando(Input):-
 	saludo_db(D),
-	intersect(S, D, A),
+	busq_clave(Input, D, A),
 	A \== [].
 
 % -------- Bases de datos de respuestas y palabras clave ----------
@@ -374,12 +349,10 @@ respuestas_db(bye, [
 	['Hasta pronto!']
 	]).
 
-
-
 % Oraciones conectoras
-respuestas_db(random_s, [
+respuestas_db(conector, [
 	['Disculpa, no entendi lo que dices'],
-	['ï¿½Podrias repetir eso?'],
+	['Podrias repetir eso?'],
 	['No estoy seguro de entender eso']
 	]).
 
