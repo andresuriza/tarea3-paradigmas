@@ -37,7 +37,7 @@ imprimir_nombre(tu):-
         cliente(X), write(X), write(': '), flush_output.
 
 % Regla que procesa la entrada del usuario.
-oracion_input(Input):- oracion_input_aux(L), filtro_input(L,Input).
+oracion_input(Input):- oracion_input_aux(L), filtro_input(L, Input).
 
 % Regla auxiliar a oracion_input que recibe oración filtrada y la convierte en una lista.
 oracion_input_aux(P):- initread(L), palabras(P, L, []).
@@ -61,13 +61,13 @@ filtro_input([X|T], [X|Respuesta]):-
         filtro_input(T, Respuesta).
 
 % Si se recibe oraci�n, procesar palabras recursivamente
-palabras([V|U]) --> palabras_aux(V),!, blanks, palabras(U).
+palabras([V|U]) --> palabras_aux(V),!, vacio, palabras(U).
 % Si no hay nada, regresa vac�o
 palabras([]) --> [].
 
 % Procesa palabra en ASCII
 palabras_aux(U1) --> [K],{convert_char(K,K1)},!,alfanum(U2),{name(U1,[K1|U2])}.
-palabras_aux(num(N)) --> [K],{digit(K)},!,digito(U),{name(N,[K|U])}.
+palabras_aux(num(N)) --> [K],{digito_aux(K)},!,digito(U),{name(N,[K|U])}.
 palabras_aux(V) --> [K],{name(V,[K])}.
 
 % Genera recursivamente caracteres alfanum�ricos en base a los c�digos
@@ -75,28 +75,28 @@ palabras_aux(V) --> [K],{name(V,[K])}.
 alfanum([K1|U]) --> [K],{alfanum_aux(K,K1)},!,alfanum(U).
 alfanum([]) --> [].
 
-% Regla que llama a digit para verificar el elemento y luego utilizando 
+% Regla que llama a digito_aux para verificar el elemento y luego utilizando 
 % convert_char realiza la suma necesaria para obtener el carácter alfanumérico.
 alfanum_aux(95,95) :- !.
 alfanum_aux(K,K1):- convert_char(K,K1).
-alfanum_aux(K,K):- digit(K).
+alfanum_aux(K,K):- digito_aux(K).
 
 % Si es un espacio o otra se�al desconocida
-blanks --> [K], {K=<32},!, blanks.
+vacio --> [K], {K=<32},!, vacio.
 % De lo contrario, son vac�os
-blanks --> [].
+vacio --> [].
 
 % Regla que procesa 113 caracteres como máximo mientras estén dentro 
 % del rango ASCII del abecedario.
-check_chars([113, X|_]):- digit(X).
+check_chars([113, X|_]):- digito_aux(X).
 
 % Si el caracter es un n�mero, se retorna
-digits([K|U]) --> [K],{digit(K)},!,digits(U).
+digito([K|U]) --> [K],{digito_aux(K)},!,digito(U).
 % Si es vac�o se regresa lista vac�a
-digits([]) --> [].
+digito([]) --> [].
 
 % Verifica si es un n�mero
-digit(K):- K>47, K<58.
+digito_aux(K):- K>47, K<58.
 
 % Procesa letras en ASCII, may�sculas y min�sculas
 convert_char(K,K1):- K>64,K<91,!,K1 is K+32.
