@@ -17,7 +17,7 @@ inicio_conversacion:-
 	gen_respuesta(S,R),
 	print_prompt(me),
 	write_list(R),
-	despedida(S), !, halt.
+	despedida(S), !, sleep(3), halt.
 
 mr_trainer('MrTrainer').
 cliente('Cliente').
@@ -26,12 +26,12 @@ cliente('Cliente').
 write_list([]):- nl.
 write_list([H|T]):- write(H), write(' '), write_list(T).
 
-% Regla que llama al name del usuario chat para simular interfaz de
+% Regla que llama al nombre del usuario chat para simular interfaz de
 % chat
 print_prompt(me):- %impresion de "mr trainer en pantalla"
         mr_trainer(X), write(X), write(': '), flush_output.
 
-% Regla que llama al name del usuario que utiliza el programa para
+% Regla que llama al nombre del usuario que utiliza el programa para
 % simular interfaz de chat
 print_prompt(you):-
         cliente(X), write(X), write(': '), flush_output.
@@ -53,9 +53,9 @@ initread([K1,K2|U]):- get_code(K1),get_code(K2),leer_resto(K2,U).
 mi_filter([],[]).
 mi_filter(['\n'|T], R):- !, mi_filter(T, R).
 mi_filter([nb(2), X|T], [Rm|R]):-
-		name(X, CharList),
+        nombre(X, CharList),
         q_follonosotrosd_by_nb(CharList),!,
-        name(Rm, [50 | CharList]),
+        nombre(Rm, [50 | CharList]),
         mi_filter(T, R).
 mi_filter([X|T], [X|R]):-
         mi_filter(T, R).
@@ -66,9 +66,9 @@ words([V|U]) --> word(V),!, blanks, words(U).
 words([]) --> [].
 
 % Procesa palabra en ASCII,
-word(U1) --> [K],{lc(K,K1)},!,alphanums(U2),{name(U1,[K1|U2])}.
-word(nb(N)) --> [K],{digit(K)},!,digits(U),{name(N,[K|U])}.
-word(V) --> [K],{name(V,[K])}.
+word(U1) --> [K],{lc(K,K1)},!,alphanums(U2),{nombre(U1,[K1|U2])}.
+word(nb(N)) --> [K],{digit(K)},!,digits(U),{nombre(N,[K|U])}.
+word(V) --> [K],{nombre(V,[K])}.
 
 % Genera recursivamente caracteres alfanum�ricos en base a los c�digos
 % recibidos
@@ -133,36 +133,36 @@ gen_respuesta(S, R):-
 	respuestas_db(bye, Res),
 	selec_rand(Res, R).
 
-%gen_respuesta(S, R):-
-%	question(Tree2, S, _Rest),
-%	mapping(s2name,Tree1, Tree2), !,
-%	oracion(Tree1, Rep,[]),
-%	append(Rep, ['!'], R).
+gen_respuesta(S, R):-
+	question(Tree2, S, _Rest),
+	mapping(s2nombre,Tree1, Tree2), !,
+	oracion(Tree1, Rep,[]),
+	append(Rep, ['!'], R).
 
-%gen_respuesta(S, R):-
-%	question(Tree2, S, _Rest), !,
-%	mapping(s2how,Tree1, Tree2),
-%	oracion(Tree1, Rep,[]), !,
-%	append(Rep, ['!'], R).
+gen_respuesta(S, R):-
+	question(Tree2, S, _Rest), !,
+	mapping(s2how,Tree1, Tree2),
+	oracion(Tree1, Rep,[]), !,
+	append(Rep, ['!'], R).
 
-%gen_respuesta(S, R):-
-	%oracion(Tree1, S, _Rest), !,
-	%mapping(s2why,Tree1, Tree2),
-	%question(Tree2, Rep,[]),
-	%append(Rep, ['?'], R).
+gen_respuesta(S, R):-
+	oracion(Tree1, S, _Rest), !,
+	mapping(s2why,Tree1, Tree2),
+	question(Tree2, Rep,[]),
+	append(Rep, ['?'], R).
 
-%gen_respuesta(S, R):-
-%	question(Tree2, S, _Rest), !,
-%	mapping(s2q,Tree1, Tree2),
-%	oracion(Tree1, Rep,[]),
-%	append([yes, ','|Rep], ['!'], R).
+gen_respuesta(S, R):-
+	question(Tree2, S, _Rest), !,
+	mapping(s2q,Tree1, Tree2),
+	oracion(Tree1, Rep,[]),
+	append([yes, ','|Rep], ['!'], R).
 
 
 	gen_respuesta(S, R):-
 		oracion(Tree1, S, _Rest), !,
 		mapping(inicio_ases,Tree1, Tree2),
 		question(Tree2, Rep,[]),
-		append(Rep, ['?'], R).
+		append([yes, ','|Rep], ['!'], R).
 
 
 % Regla que regresa a partir de una lista el valor del �ndice
@@ -181,24 +181,24 @@ selec_rand(Res, R):-
 
 % ------------ Definiciones de Definite Clause Grammar para
 % gram�tica libre de contexto ------------------------
-%oracion(s(X,Y, is, Z)) --> belonging_phrase(X), abstract_noun(Y),
-                            % [is],  special_noun(Z).
+oracion(s(X,Y, is, Z)) --> belonging_phrase(X), abstract_noun(Y),
+                              [is],  special_noun(Z).
 
 oracion(s(X, Y, Z))--> subject_phrase(X),verb(Y),noun(Z).
 
-%oracion(s(X, Y, Z)) --> subject_phrase(X), verb(Y), object_phrase(Z).
+oracion(s(X, Y, Z)) --> subject_phrase(X), verb(Y), object_phrase(Z).
 
-%oracion(s(X, Y, Z)) --> question(X), object_pronoun(Y), noun(Z).
+oracion(s(X, Y, Z)) --> question(X), object_pronoun(Y), noun(Z).
 
 belonging_phrase(belong(tuyo)) --> [tuyo].
 belonging_phrase(belong(mi)) --> [mi].
 
-abstract_noun(abs_noun(name)) --> [name].
+abstract_noun(abs_noun(nombre)) --> [nombre].
 
 special_noun(sp_noun(justin)) --> [justin].
 special_noun(sp_noun(frank)) --> [frank].
 
-subject_phrase(sp(X)) --> proname_suj(X).
+subject_phrase(sp(X)) --> pronombre_suj(X).
 subject_phrase(sp(X)) --> noun_phrase(X).
 
 object_phrase(op(X,Y)) --> noun_phrase(X), adverb(Y).
@@ -207,15 +207,15 @@ object_phrase(op(X, Y)) --> object_pronoun(X), adverb(Y).
 noun_phrase(np(X, Y)) --> determiner(X), noun(Y).
 noun_phrase(np(Y)) --> noun(Y).
 
-proname_suj(spn(yo)) --> [yo].
-proname_suj(spn(nosotros)) --> [nosotros].
-proname_suj(spn(usted)) --> [usted].
-proname_suj(spn(ellos)) --> [ellos].
-proname_suj(spn(el)) --> [el].
-proname_suj(spn(ella)) --> [ella].
-proname_suj(spn(eso)) --> [eso].
-proname_suj(spn(quien)) --> [quien].
-proname_suj(spn(entrenador)) --> [entrenador].
+pronombre_suj(spn(yo)) --> [yo].
+pronombre_suj(spn(nosotros)) --> [nosotros].
+pronombre_suj(spn(usted)) --> [usted].
+pronombre_suj(spn(ellos)) --> [ellos].
+pronombre_suj(spn(el)) --> [el].
+pronombre_suj(spn(ella)) --> [ella].
+pronombre_suj(spn(eso)) --> [eso].
+pronombre_suj(spn(quien)) --> [quien].
+pronombre_suj(spn(mrtrainer)) --> [mrtrainer].
 
 object_pronoun(opn(you))--> [you].
 object_pronoun(opn(tuyo))--> [tuyo].
@@ -239,9 +239,8 @@ noun(noun(cs_course)) --> [cs_course].
 noun(noun(robotics_course)) --> [robotics_course].
 noun(noun(robotics_course)) --> [computing_course].
 noun(noun(robotics_course)) --> [sd_course].
-noun(noun(name)) --> [name].
+noun(noun(nombre)) --> [nombre].
 noun(noun(ejercicio)) --> [ejercicio].
-
 
 adverb(ad([very, much])) --> [very, much].
 adverb(ad([how])) --> [how].
@@ -261,7 +260,7 @@ adjetivo(adj(fine)) --> [fine].
 
 
 
-question(q(X,Y,Z)) --> [excelente, iniciativa,iniciemos].
+question(q(X.Y,Z)) --> [Excelente, iniciativa,iniciemos].
 
 
 %mapping(s2why,
@@ -273,16 +272,16 @@ question(q(X,Y,Z)) --> [excelente, iniciativa,iniciemos].
 
 
 mapping(inicio_ases,
-		s(sp(spn(X)),vb(Y1), noun(Z)),	
-		q(excelente,iniciativa,iniciemos)
+		s(spn(X),vb(Y1), noun(Z)),
+		q(Excelente, iniciativa,iniciemos)
 		).
 
 
 mapping_belong(mi,tuyo).
 mapping_belong(tuyo,mi).
 
-mapping_noun(name, frank).
-mapping_noun(frank, name).
+mapping_noun(nombre, frank).
+mapping_noun(frank, nombre).
 
 mapping_indicative(are, am).
 mapping_indicative(am, are).
@@ -368,18 +367,18 @@ respuestas_db(gracias, [
 
 % Posibles mensajes de despedida de mrtrainer
 respuestas_db(bye, [
-	['Espero que haya sido de ayuda, suerte!'],
-	['Que tengas buen dia'],
-	['Hasta luego!'],
-	['Hasta pronto!']
+	['Espero que haya sido de ayuda, �suerte!'],
+	['Que tengas buen d�a'],
+	['�Hasta luego!'],
+	['�Hasta pronto!']
 	]).
 
 
 
 % Oraciones conectoras
 respuestas_db(random_s, [
-	['Disculpa, no entendi lo que dices'],
-	['�Podrias repetir eso?'],
+	['Disculpa, no entend� lo que dices'],
+	['�Podr�as repetir eso?'],
 	['No estoy seguro de entender eso']
 	]).
 
