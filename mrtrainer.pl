@@ -165,6 +165,8 @@ gen_respuesta(S, R):-
 		append(Rep, ['?'], R).
 
 
+
+
 % Regla que regresa a partir de una lista el valor del �ndice
 % especificado
 nth_item([H|_], 1, H).
@@ -184,19 +186,23 @@ selec_rand(Res, R):-
 %oracion(s(X,Y, is, Z)) --> belonging_phrase(X), abstract_noun(Y),
                             % [is],  special_noun(Z).
 
-oracion(s(X, Y, Z))--> subject_phrase(X),verb(Y),noun(Z).
+oracion(s(X, Y,Z,F,H))--> subject_phrase(X),verb(Y),complemento_d(Z),articulo(F),noun(H).
+oracion(s(X, Y,Z,F,G,H))--> subject_phrase(X),verb(Y),complemento_d(Z),articulo(F),complemento_d(G) ,noun(H).
+oracion(s(X, Y,Z,F,G,H))--> subject_phrase(X),verb(Y),complemento_d(Z),articulo(F),noun(H).
+oracion(s(X, Y,Z))--> subject_phrase(X),verb(Y),complemento_d(Z).
+oracion(s(X, Y,F,Z))--> subject_phrase(X),verb(Y),articulo(F),noun(Z).
+
+
 
 %oracion(s(X, Y, Z)) --> subject_phrase(X), verb(Y), object_phrase(Z).
 
 %oracion(s(X, Y, Z)) --> question(X), object_pronoun(Y), noun(Z).
 
-belonging_phrase(belong(tuyo)) --> [tuyo].
-belonging_phrase(belong(mi)) --> [mi].
+pertenencia(perte(tuyo)) --> [tuyo].
+pertenencia(perte(mi)) --> [mi].
 
-abstract_noun(abs_noun(name)) --> [name].
 
-special_noun(sp_noun(justin)) --> [justin].
-special_noun(sp_noun(frank)) --> [frank].
+
 
 subject_phrase(sp(X)) --> proname_suj(X).
 subject_phrase(sp(X)) --> noun_phrase(X).
@@ -204,7 +210,7 @@ subject_phrase(sp(X)) --> noun_phrase(X).
 object_phrase(op(X,Y)) --> noun_phrase(X), adverb(Y).
 object_phrase(op(X, Y)) --> object_pronoun(X), adverb(Y).
 
-noun_phrase(np(X, Y)) --> determiner(X), noun(Y).
+noun_phrase(np(X, Y)) --> articulo(X), noun(Y).
 noun_phrase(np(Y)) --> noun(Y).
 
 proname_suj(spn(yo)) --> [yo].
@@ -216,6 +222,7 @@ proname_suj(spn(ella)) --> [ella].
 proname_suj(spn(eso)) --> [eso].
 proname_suj(spn(quien)) --> [quien].
 proname_suj(spn(entrenador)) --> [entrenador].
+proname_suj(spn(me)) --> [me].
 
 object_pronoun(opn(you))--> [you].
 object_pronoun(opn(tuyo))--> [tuyo].
@@ -226,31 +233,99 @@ object_pronoun(opn(him))--> [him].
 object_pronoun(opn(her))--> [her].
 object_pronoun(opn(it))--> [it].
 
-determiner(dtmnr([])) --> [].
-determiner(dtmnr([a])) --> [a].
-determiner(dtmnr([the])) --> [the].
-determiner(dtmnr([mi])) --> [mi].
-determiner(dtmnr([some])) --> [some].
-determiner(dtmnr([all])) --> [all].
-determiner(dtmnr([that])) --> [that].
+articulo(art([])) --> [].
+articulo(art([de])) --> [de].
+articulo(art([a])) --> [a].
+articulo(art([mi])) --> [mi].
+articulo(art([mis])) --> [mis].
+articulo(art([un])) --> [un].
+articulo(art([una])) --> [una].
+articulo(art([el])) --> [el].
+articulo(art([del])) --> [del].
+articulo(art([la])) --> [la].
+articulo(art([las])) --> [las].
 
-noun(noun(unosotros)) --> [unosotros].
-noun(noun(cs_course)) --> [cs_course].
-noun(noun(robotics_course)) --> [robotics_course].
-noun(noun(robotics_course)) --> [computing_course].
-noun(noun(robotics_course)) --> [sd_course].
-noun(noun(name)) --> [name].
+
+
+
 noun(noun(ejercicio)) --> [ejercicio].
+noun(noun(padecimiento)) --> [padecimiento].
+noun(noun(dolor)) --> [dolor].
+noun(noun(molestia)) --> [molestia].
+noun(noun(problema)) --> [problema].
+
+noun(noun(natacion)) --> [natacion].
+noun(noun(ciclismo)) --> [ciclismo].
+noun(noun(fondo)) --> [fondo].
+
+
+
+
+noun(noun(rodilla)) --> [rodilla].
+noun(noun(rodillas)) --> [rodillas].
+noun(noun(articulaciones)) --> [articulaciones].
+noun(noun(articulacion)) --> [articulacion].
+noun(noun(tobillos)) --> [tobillos].
+noun(noun(tobillo)) --> [tobillo].
+noun(noun(muñecas)) --> [muñecas].
+
+
+
+
+
+
+
+%Opciones de entrada de complemento directo
+complemento_d(c_d(ganas)) --> [ganas].
+complemento_d(c_d(empezar)) --> [empezar].
+complemento_d(c_d(comenzar)) --> [comenzar].
+complemento_d(c_d(aprender)) --> [aprender].
+complemento_d(c_d(motivado)) --> [motivado].
+complemento_d(c_d(comenzar)) --> [comenzar].
+complemento_d(c_d(arrancar)) --> [arrancar].
+complemento_d(c_d(hacer)) --> [hacer].
+complemento_d(c_d(correr)) --> [correr].
+complemento_d(c_d(correr)) --> [correr].
+
+
+
+
+
+
+
 
 
 adverb(ad([very, much])) --> [very, much].
 adverb(ad([how])) --> [how].
 adverb(ad([])) --> [].
 
+%Definicion de verbos  
 verb(vb(gusta)) --> [gusta].
 verb(vb(amo)) --> [amo].
 verb(vb(es)) --> [es].
 verb(vb(tengo))-->[tengo].
+verb(vb(quiero))-->[quiero].
+verb(vb(soy))-->[soy].
+
+verb(vb(deseo))-->[deseo].
+verb(vb(necesito))-->[necesito].
+verb(vb(bajar))-->[bajar].
+verb(vb(subir))-->[subir].
+
+verb(vb(nado))-->[nado].
+verb(vb(corro))-->[corro].
+verb(vb(troto))-->[troto].
+verb(vb(camino))-->[camino].
+verb(vb(estiro))-->[estiro].
+
+verb(vb(padezco))-->[padezco].
+verb(vb(sufro))-->[sufro].
+verb(vb(duele))-->[duele].
+verb(vb(duelen))-->[duelen].
+verb(vb(experimento))-->[experimento].
+
+
+
 
 indicative_verb(ivb(are)) --> [are].
 indicative_verb(ivb(am)) --> [am].
@@ -273,9 +348,19 @@ question(q(X,Y,Z)) --> [excelente, iniciativa,iniciemos].
 
 
 mapping(inicio_ases,
-		s(sp(spn(X)),vb(Y1), noun(Z)),	
+		s(sp(spn(X)),vb(Y1),c_d(Z),art(F),c_d(G),noun(H)),	
 		q(excelente,iniciativa,iniciemos)
 		).
+
+mapping(inicio_ases,
+		s(sp(spn(X)),vb(Y1),c_d(H)),	
+		q(excelente,iniciativa,iniciemos)
+		).
+
+mapping(inicio_ases,
+			s(sp(spn(X)),vb(Y1),art(F),noun(H)),	
+			q(excelente,iniciativa,iniciemos)
+			).
 
 
 mapping_belong(mi,tuyo).
