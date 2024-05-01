@@ -469,25 +469,113 @@ respuestas_db(conector, [
 	]).
 
 
-%rutinas principiante atletismo
 
-respuestas_db(random_a,[
+rutinas_db(atletismo, principiante, X).
+rutinas_db(atletismo, intermedio, X).
+rutinas_db(atletismo, avanzado, X).
+
+%rutinas principiante atletismo
+rutinas_db(atletismo,principiante,[
 	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 2 vueltas a la pista caminando a alta velocidad
     para calentar y dar zancadas por unos 100m. Para la rutina, corre por una distancia de 400 metros, empezando a un 25% de su capacidad para correr en los primeros 100
     metros y aumentando en 25% cada 100 metros, luego descansar por unos 30 segundos y repetir esta rutina unas 10 veces. Al terminar cada vuelta, no frene de golpe, mantengase
-    caminando lentamente para evitar la acumulacion de acido lactico en las piernas.',['fractura en piernas','neumonia','asmatico'],'principiante'],
+    caminando lentamente para evitar la acumulacion de acido lactico en las piernas.'],
 	['Estirar por unos 5 minutos las piernas antes de iniciar. Para calentar realice un trote lento por 500m, donde cada 100m
     cambie de ejercicio entre trotar, trotar llevando las rodillas bien arriba, trotar llevando los pies hasta los gluteos, trotar dando zancadas y en los ultimos 100 metros correr hacer
     un sprint. Para la rutina, corre por una distancia de 400m a velocidad normal y al finalizarlos, realiza un sprint a toda la velocidad posible, por 100 metros.
     Disminuye la velocidad a un paso moderado de nuevo por 400metros y repite unas 5 veces el ejercicio. Al terminar camina por 100 metros disminuyendo la velocidad y
-    recuerda estirar.',['fractura en piernas','neumonia','asmatico'],'principiante'],
+    recuerda estirar.']
+]).
+
+rutinas_db(atletismo,principiante,neumonia,[
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 2 vueltas a la pista caminando a alta velocidad
+    para calentar y dar zancadas por unos 100m. Para la rutina, corre por una distancia de 400 metros, empezando a un 25% de su capacidad para correr en los primeros 100
+    metros y aumentando en 25% cada 100 metros, luego descansar por unos 30 segundos y repetir esta rutina unas 10 veces. Al terminar cada vuelta, no frene de golpe, mantengase
+    caminando lentamente para evitar la acumulacion de acido lactico en las piernas.'],
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Para calentar realice un trote lento por 500m, donde cada 100m
+    cambie de ejercicio entre trotar, trotar llevando las rodillas bien arriba, trotar llevando los pies hasta los gluteos, trotar dando zancadas y en los ultimos 100 metros correr hacer
+    un sprint. Para la rutina, corre por una distancia de 400m a velocidad normal y al finalizarlos, realiza un sprint a toda la velocidad posible, por 100 metros.
+    Disminuye la velocidad a un paso moderado de nuevo por 400metros y repite unas 5 veces el ejercicio. Al terminar camina por 100 metros disminuyendo la velocidad y
+    recuerda estirar.']
+]).
+
+rutinas_db(atletismo,principiante,asmatico,[
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 2 vueltas a la pista caminando a alta velocidad
+    para calentar y dar zancadas por unos 100m. Para la rutina, corre por una distancia de 400 metros, empezando a un 25% de su capacidad para correr en los primeros 100
+    metros y aumentando en 25% cada 100 metros, luego descansar por unos 30 segundos y repetir esta rutina unas 10 veces. Al terminar cada vuelta, no frene de golpe, mantengase
+    caminando lentamente para evitar la acumulacion de acido lactico en las piernas.'],
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Para calentar realice un trote lento por 500m, donde cada 100m
+    cambie de ejercicio entre trotar, trotar llevando las rodillas bien arriba, trotar llevando los pies hasta los gluteos, trotar dando zancadas y en los ultimos 100 metros correr hacer
+    un sprint. Para la rutina, corre por una distancia de 400m a velocidad normal y al finalizarlos, realiza un sprint a toda la velocidad posible, por 100 metros.
+    Disminuye la velocidad a un paso moderado de nuevo por 400metros y repite unas 5 veces el ejercicio. Al terminar camina por 100 metros disminuyendo la velocidad y
+    recuerda estirar.']
+]).
+
+rutinas_db(atletismo,principiante,quebradurapierna,[
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 2 vueltas a la pista caminando a alta velocidad
+    para calentar y dar zancadas por unos 100m. Para la rutina, corre por una distancia de 400 metros, empezando a un 25% de su capacidad para correr en los primeros 100
+    metros y aumentando en 25% cada 100 metros, luego descansar por unos 30 segundos y repetir esta rutina unas 10 veces. Al terminar cada vuelta, no frene de golpe, mantengase
+    caminando lentamente para evitar la acumulacion de acido lactico en las piernas.'],
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Para calentar realice un trote lento por 500m, donde cada 100m
+    cambie de ejercicio entre trotar, trotar llevando las rodillas bien arriba, trotar llevando los pies hasta los gluteos, trotar dando zancadas y en los ultimos 100 metros correr hacer
+    un sprint. Para la rutina, corre por una distancia de 400m a velocidad normal y al finalizarlos, realiza un sprint a toda la velocidad posible, por 100 metros.
+    Disminuye la velocidad a un paso moderado de nuevo por 400metros y repite unas 5 veces el ejercicio. Al terminar camina por 100 metros disminuyendo la velocidad y
+    recuerda estirar.']
+]).
+
+%rutinas intermedio atletismo
+rutinas_db(atletismo,intermedio,[
 	['Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
     Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
-    almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.',['fractura en piernas','neumonia','asmatico'],'intermedio'],
+    almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.']
+]).
+
+rutinas_db(atletismo,intermedio, neumonia,[
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
+    Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
+    almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.']
+]).
+
+rutinas_db(atletismo,intermedio, asmatico,[
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
+    Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
+    almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.']
+]).
+
+rutinas_db(atletismo,intermedio,quebradurapierna[
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
+    Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
+    almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.']
+]).
+
+%rutinas avanzado atletismo
+rutinas_db(atletismo,avanzado,[
 	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar da 2 vueltas trotando a una pista o por 1600m para calentar.
     Para la rutina realizar sprints de 100m con un descanso activo de 200m hasta completar 9km (un total de 30 veces). En la ultima ronda realizala
-    al 100% de la velocidad posible y en los ultimo 200m disminuir la velocidad gradualmente hasta detenerse.',['fractura en piernas','neumonia','asmatico'],'avanzado']
+    al 100% de la velocidad posible y en los ultimo 200m disminuir la velocidad gradualmente hasta detenerse.']
 ]).
+
+rutinas_db(atletismo,avanzado,neumonia,[
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar da 2 vueltas trotando a una pista o por 1600m para calentar.
+    Para la rutina realizar sprints de 100m con un descanso activo de 200m hasta completar 9km (un total de 30 veces). En la ultima ronda realizala
+    al 100% de la velocidad posible y en los ultimo 200m disminuir la velocidad gradualmente hasta detenerse.']
+]).
+
+rutinas_db(atletismo,avanzado,asmatico,[
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar da 2 vueltas trotando a una pista o por 1600m para calentar.
+    Para la rutina realizar sprints de 100m con un descanso activo de 200m hasta completar 9km (un total de 30 veces). En la ultima ronda realizala
+    al 100% de la velocidad posible y en los ultimo 200m disminuir la velocidad gradualmente hasta detenerse.']
+]).
+
+rutinas_db(atletismo,avanzado,quebradurapierna,[
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar da 2 vueltas trotando a una pista o por 1600m para calentar.
+    Para la rutina realizar sprints de 100m con un descanso activo de 200m hasta completar 9km (un total de 30 veces). En la ultima ronda realizala
+    al 100% de la velocidad posible y en los ultimo 200m disminuir la velocidad gradualmente hasta detenerse.']
+]).
+
+
+
+
 
 %rutinas principiante crossfit
 respuestas_db(random_c, [

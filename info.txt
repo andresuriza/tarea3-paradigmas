@@ -1,6 +1,6 @@
 Deportes: atletismo, halterofilia y crossfit
 
-atletismo:
+atletismo: ['fractura en piernas','neumonia','asmatico']
     Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 2 vueltas a la pista caminando a alta velocidad
     para calentar y dar zancadas por unos 100m. Para la rutina, corre por una distancia de 400 metros, empezando a un 25% de su capacidad para correr en los primeros 100
     metros y aumentando en 25% cada 100 metros, luego descansar por unos 30 segundos y repetir esta rutina unas 10 veces. Al terminar cada vuelta, no frene de golpe, mantengase
