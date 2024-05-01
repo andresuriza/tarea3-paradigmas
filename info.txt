@@ -20,7 +20,7 @@ atletismo: ['fractura en piernas','neumonia','asmatico']
     Para la rutina realizar sprints de 100m con un descanso activo de 200m hasta completar 9km (un total de 30 veces). En la ultima ronda realizala
     al 100% de la velocidad posible y en los ultimo 200m disminuir la velocidad gradualmente hasta detenerse.
 
-crossfit:
+crossfit: ['asmatico','neumonia','hipertension','hernia']
     Estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego para calentar realizar dominadas negativas, brincar a la barra y descender
     lentamente, 5 series de 3 repeticiones (5x3), luego en un tabta de 20 segundos activos y 10 de descanso, realizar cada ventana activa plancha y escaladores, repitiendo
     un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 10 dominadas, 10 lagartijas

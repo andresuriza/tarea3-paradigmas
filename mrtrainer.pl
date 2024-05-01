@@ -474,6 +474,11 @@ rutinas_db(atletismo, principiante, X).
 rutinas_db(atletismo, intermedio, X).
 rutinas_db(atletismo, avanzado, X).
 
+
+rutinas_db(crossfit, principiante, X).
+rutinas_db(crossfit, intermedio, X).
+rutinas_db(crossfit, avanzado, X).
+
 %rutinas principiante atletismo
 rutinas_db(atletismo,principiante,[
 	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 2 vueltas a la pista caminando a alta velocidad
@@ -578,16 +583,68 @@ rutinas_db(atletismo,avanzado,quebradurapierna,[
 
 
 %rutinas principiante crossfit
-respuestas_db(random_c, [
+rutinas_db(crossfit,principiante, [
 	['Estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego para calentar realizar dominadas negativas, brincar a la barra y descender
     lentamente, 5 series de 3 repeticiones (5x3), luego en un tabta de 20 segundos activos y 10 de descanso, realizar cada ventana activa plancha y escaladores, repitiendo
     un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 10 dominadas, 10 lagartijas
-    10 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.',['asmatico','neumonia','hipertension','hernia'],'principiante'],
+    10 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.'],
 	['Estirar los brazos y piernas por unos 5 minutos y hacer saltos sencillos por 10 minutos para calentar. Luego, realizaras el calentamiento llamado "burgener" con el ejercicio de clean,
     haras 5 repeticiones, iniciando desde la cadera, empujones hacia arriba, luego 5 jalones hasta el pecho, y luego 5 cleans completos que consiste en la combinacion de los movimientos
     anteriores incluyendo una rotacion de mu;ecas para descansar la barra en los hombros. Luego, realizar 5 repeticiones de 10 dominadas y 10 subidas caminando al cajon en la altura mas baja.
     Para la rutina, realiza 5 rondas de 10 saltos al cajon, 5 clean con un peso del 45% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, 
-	al finalizar, recuerda estirar e hidratarte bien.',['asmatico','neumonia','hipertension','hernia'],'principiante'],
+	al finalizar, recuerda estirar e hidratarte bien.']
+]).
+
+rutinas_db(crossfit,principiante, asmatico,[
+	['Estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego para calentar realizar dominadas negativas, brincar a la barra y descender
+    lentamente, 5 series de 3 repeticiones (5x3), luego en un tabta de 20 segundos activos y 10 de descanso, realizar cada ventana activa plancha y escaladores, repitiendo
+    un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 10 dominadas, 10 lagartijas
+    10 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.'],
+	['Estirar los brazos y piernas por unos 5 minutos y hacer saltos sencillos por 10 minutos para calentar. Luego, realizaras el calentamiento llamado "burgener" con el ejercicio de clean,
+    haras 5 repeticiones, iniciando desde la cadera, empujones hacia arriba, luego 5 jalones hasta el pecho, y luego 5 cleans completos que consiste en la combinacion de los movimientos
+    anteriores incluyendo una rotacion de mu;ecas para descansar la barra en los hombros. Luego, realizar 5 repeticiones de 10 dominadas y 10 subidas caminando al cajon en la altura mas baja.
+    Para la rutina, realiza 5 rondas de 10 saltos al cajon, 5 clean con un peso del 45% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, 
+	al finalizar, recuerda estirar e hidratarte bien.']
+]).
+
+rutinas_db(crossfit,principiante, neumonia,[
+	['Estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego para calentar realizar dominadas negativas, brincar a la barra y descender
+    lentamente, 5 series de 3 repeticiones (5x3), luego en un tabta de 20 segundos activos y 10 de descanso, realizar cada ventana activa plancha y escaladores, repitiendo
+    un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 10 dominadas, 10 lagartijas
+    10 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.'],
+	['Estirar los brazos y piernas por unos 5 minutos y hacer saltos sencillos por 10 minutos para calentar. Luego, realizaras el calentamiento llamado "burgener" con el ejercicio de clean,
+    haras 5 repeticiones, iniciando desde la cadera, empujones hacia arriba, luego 5 jalones hasta el pecho, y luego 5 cleans completos que consiste en la combinacion de los movimientos
+    anteriores incluyendo una rotacion de mu;ecas para descansar la barra en los hombros. Luego, realizar 5 repeticiones de 10 dominadas y 10 subidas caminando al cajon en la altura mas baja.
+    Para la rutina, realiza 5 rondas de 10 saltos al cajon, 5 clean con un peso del 45% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, 
+	al finalizar, recuerda estirar e hidratarte bien.']
+]).
+
+rutinas_db(crossfit,principiante, hipertension,[
+	['Estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego para calentar realizar dominadas negativas, brincar a la barra y descender
+    lentamente, 5 series de 3 repeticiones (5x3), luego en un tabta de 20 segundos activos y 10 de descanso, realizar cada ventana activa plancha y escaladores, repitiendo
+    un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 10 dominadas, 10 lagartijas
+    10 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.'],
+	['Estirar los brazos y piernas por unos 5 minutos y hacer saltos sencillos por 10 minutos para calentar. Luego, realizaras el calentamiento llamado "burgener" con el ejercicio de clean,
+    haras 5 repeticiones, iniciando desde la cadera, empujones hacia arriba, luego 5 jalones hasta el pecho, y luego 5 cleans completos que consiste en la combinacion de los movimientos
+    anteriores incluyendo una rotacion de mu;ecas para descansar la barra en los hombros. Luego, realizar 5 repeticiones de 10 dominadas y 10 subidas caminando al cajon en la altura mas baja.
+    Para la rutina, realiza 5 rondas de 10 saltos al cajon, 5 clean con un peso del 45% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, 
+	al finalizar, recuerda estirar e hidratarte bien.']
+]).
+
+rutinas_db(crossfit,principiante, hernia,[
+	['Estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego para calentar realizar dominadas negativas, brincar a la barra y descender
+    lentamente, 5 series de 3 repeticiones (5x3), luego en un tabta de 20 segundos activos y 10 de descanso, realizar cada ventana activa plancha y escaladores, repitiendo
+    un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 10 dominadas, 10 lagartijas
+    10 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.'],
+	['Estirar los brazos y piernas por unos 5 minutos y hacer saltos sencillos por 10 minutos para calentar. Luego, realizaras el calentamiento llamado "burgener" con el ejercicio de clean,
+    haras 5 repeticiones, iniciando desde la cadera, empujones hacia arriba, luego 5 jalones hasta el pecho, y luego 5 cleans completos que consiste en la combinacion de los movimientos
+    anteriores incluyendo una rotacion de mu;ecas para descansar la barra en los hombros. Luego, realizar 5 repeticiones de 10 dominadas y 10 subidas caminando al cajon en la altura mas baja.
+    Para la rutina, realiza 5 rondas de 10 saltos al cajon, 5 clean con un peso del 45% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, 
+	al finalizar, recuerda estirar e hidratarte bien.']
+]).
+
+%rutinas intermedio crossfit
+rutinas_db(crossfit,intermedio, [
 	['Estirar los brazos y piernas por unos 5 minutos y trotar unos 800m para calentar. Primero calentaras con 5 rondas de burgener para arranque, agarrando la barra con agarre abierto e iniciando
     desde la altura de la cadera, realiza 3 jalones, 3 jalones hasta el pecho y 3 arranques completos que consiste en la combinacion de los movimientos anteriores, siempre manteniendo la
     barra bien pegada al cuerpo, hasta llevarla a la altura arriba de la cabeza. Luego realiza por 10 minutos la mayor cantidad de rondas posibles de 5 dominadas hasta el pecho, 5 toques a la barra con los pies
@@ -608,7 +665,7 @@ respuestas_db(random_c, [
 ]).
 
 %rutinas principiante halterofilia
-respuestas_db(random_h,[
+rutinas_db(random_h,[
 	['Para calentar iniciaremos con solo la barra haciendo 5 jalones, 5 jalones al pecho y 5 cleans que seria combinando los movimientos anteriores y llevando la barra hasta los hombros, realiza esto 15 veces. Luego con solo la barra 
     realiza 20 cleans pausados, uno por uno, para familiarizarte con el ejercicio, siempre manteniendo la barra bien pegada al cuerpo. Luego, realiza 10 rondas de 5 lagartijas 10 abdominales y 15 sentadillas, para in construyendo fuerza.
     Y para finalizar, con un disco de 10kg a cada lado, realiza 30 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.',['hipertension','fractura en brazos','fractura en piernas','hernia'],'principiante'],
