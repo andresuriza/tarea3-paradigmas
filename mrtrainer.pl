@@ -133,6 +133,8 @@ gen_respuesta(S, R):-
 	respuestas_db(bye, Res),
 	selec_rand(Res, R).
 
+%respuesta si usuario dijo que quiere hacer alguna rutina
+
 %gen_respuesta(S, R):-
 %	question(Tree2, S, _Rest),
 %	mapping(s2name,Tree1, Tree2), !,
@@ -557,5 +559,13 @@ respuestas_db(random_eh,[
 	['Para calentar inicia trotando unos 500m, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento. Luego realiza 10 rondas de 5 repeticiones de 
     levantamientos arriba de la cabeza, lentamente para ir calentando el movimiento. Por ultimo, realiza 40 repeticiones de levantamientos clean y jerk con un peso del 50% de tu RM en el movimiento de jerk.']
 ])
+
+%reglas de 
+
+respuesta(hernia,[
+	['Evita usar mucho peso o moverte con mucha intensidad, corta las repeticiones y la intensidad a la mitad de lo
+	que deberias hacerlo']
+])
+
 
 ?-mrtrainer. % Ejecuta el programa
