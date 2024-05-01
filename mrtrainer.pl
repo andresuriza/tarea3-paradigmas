@@ -170,7 +170,9 @@ oracion(s(X, Y,F,Z))--> subject_phrase(X),verb(Y),articulo(F),noun(Z).
 oracion(s(X, Y,F,Z))--> verb(X),complemento_d(Y),articulo(F),noun(Z).
 oracion(s(X, Y,a,Z))--> verb(X),complemento_d(Y),[a],noun_inf(Z).
 oracion(s(X, Y,Z))--> subject_phrase(X),verb(Y),noun_inf(Z).
+oracion(s(X, Y,G,Z))--> subject_phrase(X),verb(Y),verb(G),noun(Z).
 oracion(s(si, Y,Z,G,H))--> [si],verb(Y),verb(Z),articulo(G),noun(H).
+oracion(s(Z,G))--> verb(Z),noun_inf(G).
 
 %oracion(s(X, Y, Z)) --> subject_phrase(X), verb(Y), object_phrase(Z).
 
@@ -211,6 +213,9 @@ articulo(art([el])) --> [el].
 articulo(art([del])) --> [del].
 articulo(art([la])) --> [la].
 articulo(art([las])) --> [las].
+articulo(art([los])) --> [los].
+articulo(art([uno])) --> [uno].
+articulo(art([unos])) --> [unos].
 
 
 
@@ -227,7 +232,9 @@ noun(noun(ciclismo)) --> [ciclismo].
 noun(noun(fondo)) --> [fondo].
 
 
-
+noun(noun(deporte)) --> [deporte].
+noun(noun(salud)) --> [salud].
+noun(noun(rutina)) --> [rutina].
 noun(noun(rodilla)) --> [rodilla].
 noun(noun(rodillas)) --> [rodillas].
 noun(noun(articulaciones)) --> [articulaciones].
@@ -237,10 +244,12 @@ noun(noun(tobillo)) --> [tobillo].
 noun(noun(munecas)) --> [munecas].
 
 noun_inf(noun_inf(correr)) --> [correr].
+noun_inf(noun_inf(caminar)) --> [caminar].
 noun_inf(noun_inf(nadar)) --> [nadar].
 noun_inf(noun_inf(trotar)) --> [trotar].
 noun_inf(noun_inf(saltar)) --> [saltar].
-
+noun_inf(noun_inf(ejercitarme)) --> [ejercitarme].
+noun_inf(noun_inf(moverme)) --> [moverme].
 
 %Opciones de entrada de complemento directo
 complemento_d(c_d(ganas)) --> [ganas].
@@ -251,6 +260,11 @@ complemento_d(c_d(motivado)) --> [motivado].
 complemento_d(c_d(arrancar)) --> [arrancar].
 complemento_d(c_d(hacer)) --> [hacer].
 complemento_d(c_d(correr)) --> [correr].
+
+complemento_d(c_d(mejorar))-->[mejorar].
+complemento_d(c_d(aumentar))-->[aumentar].
+complemento_d(c_d(bajar))-->[bajar].
+complemento_d(c_d(subir))-->[subir].
 
 
 adverbio(ad([no])) --> [no].
@@ -264,12 +278,11 @@ verb(vb(es)) --> [es].
 verb(vb(tengo))-->[tengo].
 verb(vb(quiero))-->[quiero].
 verb(vb(soy))-->[soy].
+verb(vb(hacer))-->[hacer].
+
 
 verb(vb(deseo))-->[deseo].
 verb(vb(necesito))-->[necesito].
-verb(vb(bajar))-->[bajar].
-verb(vb(subir))-->[subir].
-
 verb(vb(nado))-->[nado].
 verb(vb(corro))-->[corro].
 verb(vb(troto))-->[troto].
@@ -283,11 +296,6 @@ verb(vb(duelen))-->[duelen].
 verb(vb(experimento))-->[experimento].
 verb(vb(gustaria))-->[gustaria].
 verb(vb(quisiera))-->[quisiera].
-
-
-
-
-
 
 
 question(q(X,Y,Z)) --> [excelente, iniciativa,iniciemos].
@@ -333,9 +341,6 @@ mapping(inicio_ases,
 			).
 
 
-
-
-
 mapping(inicio_ases,
 			s(sp(spn(X)),vb(Y1),c_d(Z),art(F),noun_inf(H)),	
 			q(excelente,iniciativa,caminar)
@@ -345,6 +350,18 @@ mapping(inicio_ases,
 			s(sp(spn(X)),vb(Y1),noun_inf(H)),	
 			q(excelente,iniciativa,caminar)
 			).
+
+
+mapping(inicio_ases,
+			s(sp(spn(X)),vb(Y1),vb(Z),noun_inf(H)),	
+			q(excelente,iniciativa,caminar)
+			).
+
+mapping(inicio_ases,
+			s(vb(Y1),noun_inf(H)),	
+			q(excelente,iniciativa,caminar)
+			).
+
 
 
 
