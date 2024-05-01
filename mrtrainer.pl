@@ -480,7 +480,7 @@ respuestas_db(random_pa,[
     un sprint. Para la rutina, corre por una distancia de 400m a velocidad normal y al finalizarlos, realiza un sprint a toda la velocidad posible, por 100 metros.
     Disminuye la velocidad a un paso moderado de nuevo por 400metros y repite unas 5 veces el ejercicio. Al terminar camina por 100 metros disminuyendo la velocidad y
     recuerda estirar.']
-])
+]).
 
 %rutinas principiante crossfit
 respuestas_db(random_pc, [
@@ -492,7 +492,7 @@ respuestas_db(random_pc, [
     haras 5 repeticiones, iniciando desde la cadera, empujones hacia arriba, luego 5 jalones hasta el pecho, y luego 5 cleans completos que consiste en la combinacion de los movimientos
     anteriores incluyendo una rotacion de mu;ecas para descansar la barra en los hombros. Luego, realizar 5 repeticiones de 10 dominadas y 10 subidas caminando al cajon en la altura mas baja.
     Para la rutina, realiza 5 rondas de 10 saltos al cajon, 5 clean con un peso del 45% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, al finalizar, recuerda estirar e hidratarte bien.']
-])
+]).
 
 %rutinas principiante halterofilia
 respuestas_db(random_ph,[
@@ -502,7 +502,7 @@ respuestas_db(random_ph,[
 	['Para calentar iniciaremos con la barra, haciendo 5 jalones, 5 jalones al pecho y 5 jalones de arranque, siempre para el arranque, agarra la barra bien ancho, hasta el punto donde al subir las piernas, la barra no se levante.
     Luego realiza 10 rondas de 5 lagartijas, 10 dominadas y 15 sentadillas. Seguidamente, al finalizar estas, solo con la barra realiza 20 arranques, uno por uno, lentos
     para familiarizarte con el ejercicio. Finalmente, carga 5kg a cada lado y realiza 25 arranques, uno por uno, con la barra bien pegada al cuerpo y de forma fluida.']
-])
+]).
 
 
 %rutinas nivel medio atletismo
@@ -510,7 +510,7 @@ respuestas_db(random_ma,[
 	['Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
     Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
     almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.']
-])
+]).
 
 
 %rutinas nivel medio crossfit
@@ -524,7 +524,7 @@ respuestas_db(random_mc,[
     5% cada ronda, inciando en un 50% del peso maximo. Luego realiza 5 rondas de 10 sentadillas y 10 burpees. Para la rutina, realizaras repeticiones de 21, 15 y 9, de peso muerto y burpees brincando
     por encima de la barra, tienes 15 minutos para completar la rutina o hasta donde sea posible. Al finalizar, recuerda estirar todo el cuerpo e 
     hidratarte bien.']
-])
+]).
 
 %rutinas nivel medio halterofilia
 respuestas_db(random_mh,[
@@ -532,14 +532,14 @@ respuestas_db(random_mh,[
     descansa por unos 5 minutos, caminando sin sentarte y luego carga un 50% del peso maximo de arranque y realiza 30 repeticiones a un paso moderado. Recuerda respirar y al finalizar estira bien el cuerpo.'],
 	['Para calentar inicia trotando unos 500m, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento. Luego realiza 10 rondas de 5 repeticiones de 
     levantamientos arriba de la cabeza, lentamente para ir calentando el movimiento. Por ultimo, realiza 40 repeticiones de levantamientos clean y jerk con un peso del 50% de tu RM en el movimiento de jerk.']
-])
+]).
 
 %rutinas nivel experto atletismo
 respuestas_db(random_ea,[
 	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar da 2 vueltas trotando a una pista o por 1600m para calentar.
     Para la rutina realizar sprints de 100m con un descanso activo de 200m hasta completar 9km (un total de 30 veces). En la ultima ronda realizala
     al 100% de la velocidad posible y en los ultimo 200m disminuir la velocidad gradualmente hasta detenerse.']
-])
+]).
 
 %rutinas nivel experto crossfit
 respuestas_db(random_ec,[
@@ -550,20 +550,22 @@ respuestas_db(random_ec,[
 	['Estirar los brazos y piernas por unos 5 minutos y hacer saltos dobles por 10 minutos para calentar. Luego realiza sentadillas con la barra en la espalda, inciando con un peso del 70% e incrementando hasta llegar
     a tu RM (peso maximo). Despues realiza un tabata de 16 rondas con lagartijas, plancha y v-ups. Para la rutina, sera un AMRAP donde la ronda consiste en 15 sentadillas con la barra al frente con 155lb, 15 dips en los aros 
     y correr 200m. El tiempo para realizar la mayor cantidad de ronas posible serian 15 minutos. Al finalizar recuerda estirar bien e hidratarte bien.']
-])
+]).
 
 %rutinas nivel experto halterofilia
 respuestas_db(random_eh,[
 	['Para calentar inicia trotando unos 500m, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento. Luego realiza 10 rondas de 5 repeticiones de 
     levantamientos arriba de la cabeza, lentamente para ir calentando el movimiento. Por ultimo, realiza 40 repeticiones de levantamientos clean y jerk con un peso del 50% de tu RM en el movimiento de jerk.']
-])
+]).
 
 %reglas de 
 
 respuesta(hernia,[
 	['Evita usar mucho peso o moverte con mucha intensidad, corta las repeticiones y la intensidad a la mitad de lo
 	que deberias hacerlo']
-])
+]).
 
+
+padecimientos(['hernia','fractura en brazos','fractura en piernas','hipertension']).
 
 ?-mrtrainer. % Ejecuta el programa
