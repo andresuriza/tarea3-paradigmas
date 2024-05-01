@@ -51,7 +51,7 @@ crossfit: ['asmatico','neumonia','hipertension','hernia']
     a tu RM (peso maximo). Despues realiza un tabata de 16 rondas con lagartijas, plancha y v-ups. Para la rutina, sera un AMRAP donde la ronda consiste en 15 sentadillas con la barra al frente con 155lb, 15 dips en los aros 
     y correr 200m. El tiempo para realizar la mayor cantidad de ronas posible serian 15 minutos. Al finalizar recuerda estirar bien e hidratarte bien.
 
-halterofilia:
+halterofilia: ['hipertension','fractura en brazos','fractura en piernas','hernia']
     Para calentar iniciaremos con solo la barra haciendo 5 jalones, 5 jalones al pecho y 5 cleans que seria combinando los movimientos anteriores y llevando la barra hasta los hombros, realiza esto 15 veces. Luego con solo la barra 
     realiza 20 cleans pausados, uno por uno, para familiarizarte con el ejercicio, siempre manteniendo la barra bien pegada al cuerpo. Luego, realiza 10 rondas de 5 lagartijas 10 abdominales y 15 sentadillas, para in construyendo fuerza.
     Y para finalizar, con un disco de 10kg a cada lado, realiza 30 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.
