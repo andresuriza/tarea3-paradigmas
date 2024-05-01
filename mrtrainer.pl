@@ -187,28 +187,27 @@ selec_rand(Res, R):-
                             % [is],  special_noun(Z).
 
 oracion(s(X, Y,Z,F,H))--> subject_phrase(X),verb(Y),complemento_d(Z),articulo(F),noun(H).
-oracion(s(X, Y,Z,F,G,H))--> subject_phrase(X),verb(Y),complemento_d(Z),articulo(F),complemento_d(G) ,noun(H).
+oracion(s(X, Y,Z,F,G,H))--> subject_phrase(X),verb(Y),complemento_d(Z),articulo(F),complemento_d(G),noun(H).
 oracion(s(X, Y,Z,F,G,H))--> subject_phrase(X),verb(Y),complemento_d(Z),articulo(F),noun(H).
+oracion(s(X, Y,Z,F,H))--> subject_phrase(X),verb(Y),complemento_d(Z),articulo(F),noun_inf(H).
 oracion(s(X, Y,Z))--> subject_phrase(X),verb(Y),complemento_d(Z).
 oracion(s(X, Y,F,Z))--> subject_phrase(X),verb(Y),articulo(F),noun(Z).
-
-
+oracion(s(X, Y,F,Z))--> verb(X),complemento_d(Y),articulo(F),noun(Z).
+oracion(s(X, Y,a,Z))--> verb(X),complemento_d(Y),[a],noun_inf(Z).
+oracion(s(X, Y,Z))--> subject_phrase(X),verb(Y),noun_inf(Z).
+oracion(s(si, Y,Z,G,H))--> [si],verb(Y),verb(Z),articulo(G),noun(H).
 
 %oracion(s(X, Y, Z)) --> subject_phrase(X), verb(Y), object_phrase(Z).
 
 %oracion(s(X, Y, Z)) --> question(X), object_pronoun(Y), noun(Z).
 
+
 pertenencia(perte(tuyo)) --> [tuyo].
 pertenencia(perte(mi)) --> [mi].
 
 
-
-
 subject_phrase(sp(X)) --> proname_suj(X).
 subject_phrase(sp(X)) --> noun_phrase(X).
-
-object_phrase(op(X,Y)) --> noun_phrase(X), adverb(Y).
-object_phrase(op(X, Y)) --> object_pronoun(X), adverb(Y).
 
 noun_phrase(np(X, Y)) --> articulo(X), noun(Y).
 noun_phrase(np(Y)) --> noun(Y).
@@ -224,14 +223,7 @@ proname_suj(spn(quien)) --> [quien].
 proname_suj(spn(entrenador)) --> [entrenador].
 proname_suj(spn(me)) --> [me].
 
-object_pronoun(opn(you))--> [you].
-object_pronoun(opn(tuyo))--> [tuyo].
-object_pronoun(opn(me))--> [me].
-object_pronoun(opn(us))--> [us].
-object_pronoun(opn(them))--> [them].
-object_pronoun(opn(him))--> [him].
-object_pronoun(opn(her))--> [her].
-object_pronoun(opn(it))--> [it].
+
 
 articulo(art([])) --> [].
 articulo(art([de])) --> [de].
@@ -253,11 +245,11 @@ noun(noun(padecimiento)) --> [padecimiento].
 noun(noun(dolor)) --> [dolor].
 noun(noun(molestia)) --> [molestia].
 noun(noun(problema)) --> [problema].
+noun(noun(peso)) --> [peso].
 
 noun(noun(natacion)) --> [natacion].
 noun(noun(ciclismo)) --> [ciclismo].
 noun(noun(fondo)) --> [fondo].
-
 
 
 
@@ -267,12 +259,12 @@ noun(noun(articulaciones)) --> [articulaciones].
 noun(noun(articulacion)) --> [articulacion].
 noun(noun(tobillos)) --> [tobillos].
 noun(noun(tobillo)) --> [tobillo].
-noun(noun(muñecas)) --> [muñecas].
+noun(noun(munecas)) --> [munecas].
 
-
-
-
-
+noun_inf(noun_inf(correr)) --> [correr].
+noun_inf(noun_inf(nadar)) --> [nadar].
+noun_inf(noun_inf(trotar)) --> [trotar].
+noun_inf(noun_inf(saltar)) --> [saltar].
 
 
 %Opciones de entrada de complemento directo
@@ -281,23 +273,14 @@ complemento_d(c_d(empezar)) --> [empezar].
 complemento_d(c_d(comenzar)) --> [comenzar].
 complemento_d(c_d(aprender)) --> [aprender].
 complemento_d(c_d(motivado)) --> [motivado].
-complemento_d(c_d(comenzar)) --> [comenzar].
 complemento_d(c_d(arrancar)) --> [arrancar].
 complemento_d(c_d(hacer)) --> [hacer].
 complemento_d(c_d(correr)) --> [correr].
-complemento_d(c_d(correr)) --> [correr].
 
 
+adverbio(ad([no])) --> [no].
+adverbio(ad([si])) --> [si].
 
-
-
-
-
-
-
-adverb(ad([very, much])) --> [very, much].
-adverb(ad([how])) --> [how].
-adverb(ad([])) --> [].
 
 %Definicion de verbos  
 verb(vb(gusta)) --> [gusta].
@@ -323,16 +306,12 @@ verb(vb(sufro))-->[sufro].
 verb(vb(duele))-->[duele].
 verb(vb(duelen))-->[duelen].
 verb(vb(experimento))-->[experimento].
+verb(vb(gustaria))-->[gustaria].
+verb(vb(quisiera))-->[quisiera].
 
 
 
 
-indicative_verb(ivb(are)) --> [are].
-indicative_verb(ivb(am)) --> [am].
-
-adjetivo(adj(great)) --> [great].
-adjetivo(adj(good)) --> [good].
-adjetivo(adj(fine)) --> [fine].
 
 
 
@@ -358,9 +337,40 @@ mapping(inicio_ases,
 		).
 
 mapping(inicio_ases,
-			s(sp(spn(X)),vb(Y1),art(F),noun(H)),	
+			s(sp(spn(X)),vb(Y1),c_d(Z),art(F),noun(H)),	
+			q(excelente,iniciativa,caminar)
+			).
+
+mapping(inicio_ases,
+			s(vb(X),c_d(Y1),art(F),noun(H)),	
 			q(excelente,iniciativa,iniciemos)
 			).
+	
+mapping(inicio_ases,
+			s(vb(X),c_d(Y1),a,noun_inf(H)),	
+			q(excelente,iniciativa,iniciemos)
+			).
+
+
+mapping(inicio_ases,
+			s(si,vb(X),vb(Y),art(Z),noun(H)),	
+			q(excelente,iniciativa,iniciemos)
+			).
+
+
+
+
+
+mapping(inicio_ases,
+			s(sp(spn(X)),vb(Y1),c_d(Z),art(F),noun_inf(H)),	
+			q(excelente,iniciativa,caminar)
+			).
+
+mapping(inicio_ases,
+			s(sp(spn(X)),vb(Y1),noun_inf(H)),	
+			q(excelente,iniciativa,caminar)
+			).
+
 
 
 mapping_belong(mi,tuyo).
