@@ -68,9 +68,4 @@ halterofilia:
 
 
 Enfermedades:
-    Hernia
-
-    Quebradura (brazos, piernas)
-
-    neumonia
-
+['hernia','fractura en brazos','fractura en piernas','hipertension','asmatico','neumonia']
