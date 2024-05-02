@@ -493,39 +493,38 @@ rutinas_db(atletismo,principiante,[
 ]).
 
 rutinas_db(atletismo,principiante,neumonia,[
-	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 2 vueltas a la pista caminando a alta velocidad
-    para calentar y dar zancadas por unos 100m. Para la rutina, corre por una distancia de 400 metros, empezando a un 25% de su capacidad para correr en los primeros 100
-    metros y aumentando en 25% cada 100 metros, luego descansar por unos 30 segundos y repetir esta rutina unas 10 veces. Al terminar cada vuelta, no frene de golpe, mantengase
-    caminando lentamente para evitar la acumulacion de acido lactico en las piernas.'],
-	['Estirar por unos 5 minutos las piernas antes de iniciar. Para calentar realice un trote lento por 500m, donde cada 100m
-    cambie de ejercicio entre trotar, trotar llevando las rodillas bien arriba, trotar llevando los pies hasta los gluteos, trotar dando zancadas y en los ultimos 100 metros correr hacer
-    un sprint. Para la rutina, corre por una distancia de 400m a velocidad normal y al finalizarlos, realiza un sprint a toda la velocidad posible, por 100 metros.
-    Disminuye la velocidad a un paso moderado de nuevo por 400metros y repite unas 5 veces el ejercicio. Al terminar camina por 100 metros disminuyendo la velocidad y
-    recuerda estirar.']
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 1 vuelta a la pista caminando a una velocidad media
+    para calentar y dar zancadas por unos 100m manteniendo un ritmo moderado. Para la rutina, correr por una distancia de 400 
+    metros, empezando a un 25% de su capacidad para correr en los primeros 100 metros y aumentando al 60% de su capacidad en 
+    los ultimos 200m, manteniendo un ritmo moderado y ligero, luego descansar por unos 30 segundos y repetir esta rutina unas 
+    10 veces. Al terminar cada vuelta, no frene de golpe, mantengase caminando lentamente para evitar la acumulacion de acido lactico en las piernas.'],
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Para calentar realice un trote lento por 200m, donde cada 50m
+    cambie de ejercicio entre trotar, trotar llevando las rodillas bien arriba, trotar llevando los pies hasta los gluteos, 
+    trotar dando zancadas y en los ultimos 50 metros hacer un sprint a un ritmo moderado cuidando la respiracion. Para la 
+    rutina, corre por una distancia de 400m a velocidad normal y al finalizarlos, realiza un sprint a una velocidad moderada
+    y constante,por 100 metros. Disminuye la velocidad a un paso moderado de nuevo por 400 m y repite unas 5 veces el ejercicio. Al terminar 
+    camina por 100 metros disminuyendo la velocidad y recuerda estirar.']
 ]).
 
 rutinas_db(atletismo,principiante,asmatico,[
-	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 2 vueltas a la pista caminando a alta velocidad
-    para calentar y dar zancadas por unos 100m. Para la rutina, corre por una distancia de 400 metros, empezando a un 25% de su capacidad para correr en los primeros 100
-    metros y aumentando en 25% cada 100 metros, luego descansar por unos 30 segundos y repetir esta rutina unas 10 veces. Al terminar cada vuelta, no frene de golpe, mantengase
-    caminando lentamente para evitar la acumulacion de acido lactico en las piernas.'],
-	['Estirar por unos 5 minutos las piernas antes de iniciar. Para calentar realice un trote lento por 500m, donde cada 100m
-    cambie de ejercicio entre trotar, trotar llevando las rodillas bien arriba, trotar llevando los pies hasta los gluteos, trotar dando zancadas y en los ultimos 100 metros correr hacer
-    un sprint. Para la rutina, corre por una distancia de 400m a velocidad normal y al finalizarlos, realiza un sprint a toda la velocidad posible, por 100 metros.
-    Disminuye la velocidad a un paso moderado de nuevo por 400metros y repite unas 5 veces el ejercicio. Al terminar camina por 100 metros disminuyendo la velocidad y
-    recuerda estirar.']
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 1 vuelta a la pista caminando a una velocidad media
+    para calentar y dar zancadas por unos 100m manteniendo un ritmo moderado. Para la rutina, correr por una distancia de 400 
+    metros, empezando a un 25% de su capacidad para correr en los primeros 100 metros y aumentando al 60% de su capacidad en 
+    los ultimos 200m, manteniendo un ritmo moderado y ligero, luego descansar por unos 30 segundos y repetir esta rutina unas 
+    10 veces. Al terminar cada vuelta, no frene de golpe, mantengase caminando lentamente para evitar la acumulacion de acido lactico en las piernas.'],
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Para calentar realice un trote lento por 200m, donde cada 50m
+    cambie de ejercicio entre trotar, trotar llevando las rodillas bien arriba, trotar llevando los pies hasta los gluteos, 
+    trotar dando zancadas y en los ultimos 50 metros hacer un sprint a un ritmo moderado cuidando la respiracion. Para la 
+    rutina, corre por una distancia de 400m a velocidad normal y al finalizarlos, realiza un sprint a una velocidad moderada
+    y constante,por 100 metros. Disminuye la velocidad a un paso moderado de nuevo por 400 m y repite unas 5 veces el ejercicio. Al terminar 
+    camina por 100 metros disminuyendo la velocidad y recuerda estirar.']
 ]).
 
 rutinas_db(atletismo,principiante,quebradurapierna,[
-	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 2 vueltas a la pista caminando a alta velocidad
-    para calentar y dar zancadas por unos 100m. Para la rutina, corre por una distancia de 400 metros, empezando a un 25% de su capacidad para correr en los primeros 100
-    metros y aumentando en 25% cada 100 metros, luego descansar por unos 30 segundos y repetir esta rutina unas 10 veces. Al terminar cada vuelta, no frene de golpe, mantengase
-    caminando lentamente para evitar la acumulacion de acido lactico en las piernas.'],
-	['Estirar por unos 5 minutos las piernas antes de iniciar. Para calentar realice un trote lento por 500m, donde cada 100m
-    cambie de ejercicio entre trotar, trotar llevando las rodillas bien arriba, trotar llevando los pies hasta los gluteos, trotar dando zancadas y en los ultimos 100 metros correr hacer
-    un sprint. Para la rutina, corre por una distancia de 400m a velocidad normal y al finalizarlos, realiza un sprint a toda la velocidad posible, por 100 metros.
-    Disminuye la velocidad a un paso moderado de nuevo por 400metros y repite unas 5 veces el ejercicio. Al terminar camina por 100 metros disminuyendo la velocidad y
-    recuerda estirar.']
+	['No te recomiendo atletismo con una pierna rota, pero podrias hacer esta rutina: 
+    Estirar por unos 5 minutos las piernas antes de iniciar. Luego camina dandole 1 vuelta a la pista para calentar. Luego has una pausa de unos
+    segundos y repite esto unas 10 veces tratando en lo posible de ir con un paso un poco mas acelerado pero sin correr ni trotar para que almenos
+    mantengas la fuerza en la pierna sana.']
 ]).
 
 %rutinas intermedio atletismo
@@ -537,20 +536,27 @@ rutinas_db(atletismo,intermedio,[
 
 rutinas_db(atletismo,intermedio, neumonia,[
 	['Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
-    Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
-    almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.']
+    Sin llegar a mas del 60% y sin hiperventilarte. Al llegar a los 400m, mantener el ritmo por 800m y luego por 
+    100m disminuir la velocidad hasta detenerse. Descansa unos minutos para que recuperes el aire. Para la rutina 
+    hacer series de 500 metros a un paso moderado, almenos unas 10 series. Al terminar, recuerda estirar y bajar 
+    la velocidad gradualmente para evitar lesiones. Recuerda no acelerarte mucho para evitar dificultades al respirar
+    por tu condicion y tomar pausas caminando de ser necesario']
 ]).
 
 rutinas_db(atletismo,intermedio, asmatico,[
 	['Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
-    Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
-    almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.']
+    Sin llegar a mas del 60% y sin hiperventilarte. Al llegar a los 400m, mantener el ritmo por 800m y luego por 
+    100m disminuir la velocidad hasta detenerse. Descansa unos minutos para que recuperes el aire. Para la rutina 
+    hacer series de 500 metros a un paso moderado, almenos unas 10 series. Al terminar, recuerda estirar y bajar 
+    la velocidad gradualmente para evitar lesiones. Recuerda no acelerarte mucho para evitar dificultades al respirar
+    por tu condicion y tomar pausas caminando de ser necesario']
 ]).
 
 rutinas_db(atletismo,intermedio,quebradurapierna[
-	['Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
-    Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
-    almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.']
+	['No te recomiendo atletismo con una pierna rota, pero podrias hacer esta rutina: 
+    Estirar por unos 5 minutos las piernas antes de iniciar. Luego camina dandole 1 vuelta a la pista para calentar. Luego has una pausa de unos
+    segundos y repite esto unas 10 veces tratando en lo posible de ir con un paso un poco mas acelerado pero sin correr ni trotar para que almenos
+    mantengas la fuerza en la pierna sana.']
 ]).
 
 %rutinas avanzado atletismo
@@ -561,21 +567,26 @@ rutinas_db(atletismo,avanzado,[
 ]).
 
 rutinas_db(atletismo,avanzado,neumonia,[
-	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar da 2 vueltas trotando a una pista o por 1600m para calentar.
-    Para la rutina realizar sprints de 100m con un descanso activo de 200m hasta completar 9km (un total de 30 veces). En la ultima ronda realizala
-    al 100% de la velocidad posible y en los ultimo 200m disminuir la velocidad gradualmente hasta detenerse.']
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar da 2 vueltas trotando a un paso moderado en una pista o 
+    por 1600m para calentar.
+    Para la rutina realiza sprints de 100m  con un descanso activo de 200m caminando hasta completar 9km (un total de 30 veces, cuida tu respiracion,
+    reducelo a 15 vueltas en caso de sentirte mal). En la ultima ronda realizala con bastante velocidad pero cuidando de no hiperventilarte y en los
+    ultimo 200m disminuir la velocidad gradualmente hasta detenerse.']
 ]).
 
 rutinas_db(atletismo,avanzado,asmatico,[
-	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar da 2 vueltas trotando a una pista o por 1600m para calentar.
-    Para la rutina realizar sprints de 100m con un descanso activo de 200m hasta completar 9km (un total de 30 veces). En la ultima ronda realizala
-    al 100% de la velocidad posible y en los ultimo 200m disminuir la velocidad gradualmente hasta detenerse.']
+	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar da 2 vueltas trotando a un paso moderado en una pista o 
+    por 1600m para calentar.
+    Para la rutina realiza sprints de 100m  con un descanso activo de 200m caminando hasta completar 9km (un total de 30 veces, cuida tu respiracion,
+    reducelo a 15 vueltas en caso de sentirte mal). En la ultima ronda realizala con bastante velocidad pero cuidando de no hiperventilarte y en los
+    ultimo 200m disminuir la velocidad gradualmente hasta detenerse.']
 ]).
 
 rutinas_db(atletismo,avanzado,quebradurapierna,[
-	['Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar da 2 vueltas trotando a una pista o por 1600m para calentar.
-    Para la rutina realizar sprints de 100m con un descanso activo de 200m hasta completar 9km (un total de 30 veces). En la ultima ronda realizala
-    al 100% de la velocidad posible y en los ultimo 200m disminuir la velocidad gradualmente hasta detenerse.']
+	['No te recomiendo atletismo con una pierna rota, pero podrias hacer esta rutina: 
+    Estirar por unos 5 minutos las piernas antes de iniciar. Luego camina dandole 1 vuelta a la pista para calentar. Luego has una pausa de unos
+    segundos y repite esto unas 10 veces tratando en lo posible de ir con un paso un poco mas acelerado pero sin correr ni trotar para que almenos
+    mantengas la fuerza en la pierna sana.']
 ]).
 
 
@@ -596,39 +607,44 @@ rutinas_db(crossfit,principiante, [
 ]).
 
 rutinas_db(crossfit,principiante, asmatico,[
-	['Estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego para calentar realizar dominadas negativas, brincar a la barra y descender
-    lentamente, 5 series de 3 repeticiones (5x3), luego en un tabta de 20 segundos activos y 10 de descanso, realizar cada ventana activa plancha y escaladores, repitiendo
-    un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 10 dominadas, 10 lagartijas
-    10 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.'],
-	['Estirar los brazos y piernas por unos 5 minutos y hacer saltos sencillos por 10 minutos para calentar. Luego, realizaras el calentamiento llamado "burgener" con el ejercicio de clean,
-    haras 5 repeticiones, iniciando desde la cadera, empujones hacia arriba, luego 5 jalones hasta el pecho, y luego 5 cleans completos que consiste en la combinacion de los movimientos
-    anteriores incluyendo una rotacion de mu;ecas para descansar la barra en los hombros. Luego, realizar 5 repeticiones de 10 dominadas y 10 subidas caminando al cajon en la altura mas baja.
-    Para la rutina, realiza 5 rondas de 10 saltos al cajon, 5 clean con un peso del 45% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, 
-	al finalizar, recuerda estirar e hidratarte bien.']
+	['Durante la rutina, manten un ritmo constante y moderado, no te aceleres y toma pausas para respirar. Estira los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. 
+    Luego para calentar realizar dominadas negativas, brincar a la barra y descender lentamente, 5 series de 3 repeticiones (5x3), luego en un tabta de 20 segundos activos y 10 de descanso,
+    realizar cada ventana activa plancha y escaladores, repitiendo un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 15 minutos, 
+    donde una ronda consiste en 5 dominadas, 10 lagartijas 5 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.'],
+	['Durante la rutina, manten un ritmo constante y moderado, no te aceleres y toma pausas para respirar. Estirar los brazos y piernas por unos 5 minutos y hacer saltos sencillos por 10 
+    minutos para calentar. Luego, realizaras el calentamiento llamado "burgener" con el ejercicio de clean, haras 3 repeticiones, iniciando desde la cadera, empujones hacia arriba, luego 
+    5 jalones hasta el pecho, y luego 5 cleans completos que consiste en la combinacion de los movimientos anteriores incluyendo una rotacion de muñecas para descansar la barra en los hombros. 
+    Realiza estas repeticiones de forma pausada y lenta, no te hiperventiles. Luego, realizar 5 repeticiones de 5 dominadas y 10 subidas caminando al cajon en la altura mas baja.
+    Para la rutina, realiza 5 rondas de 5 caminadas al cajon, 5 clean con un peso del 45% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, 
+	al finalizar, recuerda estirar e hidratarte bien. No te apresures, cuida tu respiracion para evitar algun problema por tu condicion.']
 ]).
 
 rutinas_db(crossfit,principiante, neumonia,[
-	['Estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego para calentar realizar dominadas negativas, brincar a la barra y descender
-    lentamente, 5 series de 3 repeticiones (5x3), luego en un tabta de 20 segundos activos y 10 de descanso, realizar cada ventana activa plancha y escaladores, repitiendo
-    un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 10 dominadas, 10 lagartijas
-    10 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.'],
-	['Estirar los brazos y piernas por unos 5 minutos y hacer saltos sencillos por 10 minutos para calentar. Luego, realizaras el calentamiento llamado "burgener" con el ejercicio de clean,
-    haras 5 repeticiones, iniciando desde la cadera, empujones hacia arriba, luego 5 jalones hasta el pecho, y luego 5 cleans completos que consiste en la combinacion de los movimientos
-    anteriores incluyendo una rotacion de mu;ecas para descansar la barra en los hombros. Luego, realizar 5 repeticiones de 10 dominadas y 10 subidas caminando al cajon en la altura mas baja.
-    Para la rutina, realiza 5 rondas de 10 saltos al cajon, 5 clean con un peso del 45% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, 
-	al finalizar, recuerda estirar e hidratarte bien.']
+	['Durante la rutina, manten un ritmo constante y moderado, no te aceleres y toma pausas para respirar. Estira los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. 
+    Luego para calentar realizar dominadas negativas, brincar a la barra y descender lentamente, 5 series de 3 repeticiones (5x3), luego en un tabata de 20 segundos activos y 10 de descanso,
+    realizar cada ventana activa plancha y escaladores, repitiendo un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 15 minutos, 
+    donde una ronda consiste en 5 dominadas, 10 lagartijas 5 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.'],
+	['Durante la rutina, manten un ritmo constante y moderado, no te aceleres y toma pausas para respirar. Estirar los brazos y piernas por unos 5 minutos y hacer saltos sencillos por 10 
+    minutos para calentar. Luego, realizaras el calentamiento llamado "burgener" con el ejercicio de clean, haras 3 repeticiones, iniciando desde la cadera, empujones hacia arriba, luego 
+    5 jalones hasta el pecho, y luego 5 cleans completos que consiste en la combinacion de los movimientos anteriores incluyendo una rotacion de muñecas para descansar la barra en los hombros. 
+    Realiza estas repeticiones de forma pausada y lenta, no te hiperventiles. Luego, realizar 5 repeticiones de 5 dominadas y 10 subidas caminando al cajon en la altura mas baja.
+    Para la rutina, realiza 5 rondas de 5 caminadas al cajon, 5 clean con un peso del 45% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, 
+	al finalizar, recuerda estirar e hidratarte bien. No te apresures, cuida tu respiracion para evitar algun problema por tu condicion.']
 ]).
 
 rutinas_db(crossfit,principiante, hipertension,[
-	['Estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego para calentar realizar dominadas negativas, brincar a la barra y descender
-    lentamente, 5 series de 3 repeticiones (5x3), luego en un tabta de 20 segundos activos y 10 de descanso, realizar cada ventana activa plancha y escaladores, repitiendo
-    un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 10 dominadas, 10 lagartijas
-    10 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.'],
-	['Estirar los brazos y piernas por unos 5 minutos y hacer saltos sencillos por 10 minutos para calentar. Luego, realizaras el calentamiento llamado "burgener" con el ejercicio de clean,
-    haras 5 repeticiones, iniciando desde la cadera, empujones hacia arriba, luego 5 jalones hasta el pecho, y luego 5 cleans completos que consiste en la combinacion de los movimientos
-    anteriores incluyendo una rotacion de mu;ecas para descansar la barra en los hombros. Luego, realizar 5 repeticiones de 10 dominadas y 10 subidas caminando al cajon en la altura mas baja.
-    Para la rutina, realiza 5 rondas de 10 saltos al cajon, 5 clean con un peso del 45% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, 
-	al finalizar, recuerda estirar e hidratarte bien.']
+	['Durante la rutina, manten un ritmo constante y moderado, no pongas mucha intensidad. Estira los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. 
+    Luego para calentar realizar dominadas negativas, brincar a la barra y descender lentamente, 5 series de 3 repeticiones (5x3), luego en un tabata de 20 segundos activos y 10 de descanso,
+    realizar cada ventana activa plancha y escaladores, repitiendo un total de 12 veces (6 minutos) a un ritmo moderado, no le metas intensidad. Para la rutina, seran la mayor cantidad de 
+    repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 5 dominadas, 10 lagartijas 5 toques a la barra con los pies y 100 metros de corrida. Al terminar, recuerda 
+    estirar y estar hidratandote bien y no corras mucho'],
+	['Durante la rutina, manten un ritmo constante y moderado, no te aceleres y toma pausas para recuperar el ritmo, evita ponerle intensidad para que no se te suba la presion. Estira los 
+    brazos y piernas por unos 5 minutos y hacer saltos sencillos por 10 minutos para calentar. Luego, realizaras el calentamiento llamado "burgener" con el ejercicio de clean, haras 3 
+    repeticiones con una pausa de unos segundos entre cada ejercicio, iniciando desde la cadera, empujones hacia arriba, luego 5 jalones hasta el pecho, y luego 5 cleans completos que 
+    consiste en la combinacion de los movimientos anteriores incluyendo una rotacion de muñecas para descansar la barra en los hombros. Realiza estas repeticiones de forma pausada y 
+    lenta, no le pongas intensidad, ve a un ritmo moderado. Luego, realiza 5 repeticiones de 5 dominadas y 10 subidas caminando al cajon en la altura mas baja.
+    Para la rutina, realiza 5 rondas de 5 caminadas al cajon, 5 clean con un peso del 30% de su capacidad o unicamente la barra de 45lb y 5 dominadas. Tienes 20 minutos para completar las 5 rondas, 
+	al finalizar, recuerda estirar e hidratarte bien. No te apresures, cuida el ritmo para evitar que se acelere tu pulso mas de lo necesario']
 ]).
 
 rutinas_db(crossfit,principiante, hernia,[
