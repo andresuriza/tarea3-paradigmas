@@ -135,10 +135,13 @@ gen_respuesta(Input, Respuesta):-
 	selec_rand(Res, Respuesta).
 
 gen_respuesta(Input, Respuesta):-
-	oracion(Tree1, Input, _Rest), !,
-	mapping(inicio_ases,Tree1, Tree2),
-	question(Tree2, Rep,[]),
-	append(Rep, ['?'], Respuesta).
+	oracion(Tree1, Input, _Rest),	% Ojo que no tiene '!'
+	mapping(inicio_ases, Tree1, Rep),
+	append(Rep, [], Respuesta).
+
+gen_respuesta(Input, Respuesta):-
+	oracion(Tree1, Input, _Rest), !, % Ultimo posible caso de oracion lleva '!' para evitar backtracking
+	mapping(prueba_db, Tree1, Respuesta).
 
 
 
@@ -332,9 +335,6 @@ verb(vb(gustaria))-->[gustaria].
 verb(vb(quisiera))-->[quisiera].
 
 
-question(q(X,Y,Z)) --> [excelente, iniciativa,iniciemos].
-
-
 %mapping(s2why,
  %       s(sp(spn(N1)),vb(V),op(opn(N2),ad(X))),
   %      q(why,do,s(sp(spn(P1)),vb(V),op(opn(P2),ad(X))))
@@ -345,60 +345,65 @@ question(q(X,Y,Z)) --> [excelente, iniciativa,iniciemos].
 
 mapping(inicio_ases,
 		s(sp(spn(X)),vb(Y1),c_d(Z),art(F),c_d(G),noun(H)),	
-		q(excelente,iniciativa,iniciemos)
+		[excelente, iniciativa, iniciemos]
 		).
 
 mapping(inicio_ases,
 		s(sp(spn(X)),vb(Y1),c_d(H)),	
-		q(excelente,iniciativa,iniciemos)
+		[excelente, iniciativa, iniciemos]
 		).
 
 mapping(inicio_ases,
 			s(sp(spn(X)),vb(Y1),c_d(Z),art(F),noun(H)),	
-			q(excelente,iniciativa,caminar)
+			[excelente, iniciativa, iniciemos]
 			).
 
 mapping(inicio_ases,
 			s(vb(X),c_d(Y1),art(F),noun(H)),	
-			q(excelente,iniciativa,iniciemos)
-			).
-	
-mapping(inicio_ases,
-			s(vb(X),c_d(Y1),a,noun_inf(H)),	
-			q(excelente,iniciativa,iniciemos)
+			[excelente, iniciativa, iniciemos]
 			).
 
+% ---------------- COMENTADO PARA EVITAR CONFLICTOS ENTRE MAPPING -------------
+% Ver que es el mismo caso de oracion del mapping prueba_db	
+%mapping(inicio_ases,
+%			s(vb(X),c_d(Y1),a,noun_inf(H)),	
+%			[excelente, iniciativa, iniciemos]
+%			).
+
+mapping(prueba_db,
+	s(vb(X),c_d(Y1),a,noun_inf(H)),	Respuesta):- 
+		prueba_db(test, Res), selec_rand(Res, Respuesta). % Selecciona random, idealmente tendra varias opciones, igual sirve con 1
 
 mapping(inicio_ases,
 			s(si,vb(X),vb(Y),art(Z),noun(H)),	
-			q(excelente,iniciativa,iniciemos)
+			[excelente, iniciativa, iniciemos]
 			).
 
 
 mapping(inicio_ases,
 			s(sp(spn(X)),vb(Y1),c_d(Z),art(F),noun_inf(H)),	
-			q(excelente,iniciativa,caminar)
+			[excelente, iniciativa, iniciemos]
 			).
 
 mapping(inicio_ases,
 			s(sp(spn(X)),vb(Y1),noun_inf(H)),	
-			q(excelente,iniciativa,caminar)
+			[excelente, iniciativa, iniciemos]
 			).
 
 
 mapping(inicio_ases,
 			s(sp(spn(X)),vb(Y1),vb(Z),noun_inf(H)),	
-			q(excelente,iniciativa,caminar)
+			[excelente, iniciativa, iniciemos]
 			).
 
 mapping(inicio_ases,
 			s(vb(Y1),noun_inf(H)),	
-			q(excelente,iniciativa,caminar)
+			[excelente, iniciativa, iniciemos]
 			).
 
 mapping(inicio_ases,
 			s(vb(X),art(Y),noun(Z),niv(G)),	
-			q(excelente,iniciativa,caminar)
+			[excelente, iniciativa, iniciemos]
 			).
 	
 
@@ -505,6 +510,8 @@ respuestas_db(conector, [
 	['Podrias repetir eso?'],
 	['No estoy seguro de entender eso']
 	]).
+
+prueba_db(test, [['Este es un string predefinido, puede ser random']]).
 
 
 %rutinas principiante atletismo
