@@ -319,7 +319,7 @@ oracion(s(no, X, ningun, padecimiento))-->[no],verb(X),[ningun],[padecimiento].
 oracion(s(X, asma))-->verb(X), [asma].
 oracion(s(X, asmatico))-->verb(X), [asmatico].
 oracion(s(X, hipertension))-->verb(X), [hipertension].
-oracion(s(X, hernia))-->verb(X), [hernia].
+oracion(s(X, Y, hernia))-->verb(X), articulo(Y), [hernia].
 oracion(s(X, Y, pierna, B))-->verb(X), articulo(Y), [pierna], adjetivo(B).
 oracion(s(X, Y, piernas, B))-->verb(X), articulo(Y), [piernas], adjetivo(B).
 oracion(s(X, pierna, Z, B))-->articulo(X), [pierna], verb(Z), adjetivo(B).
@@ -610,7 +610,7 @@ mapping(hipertension,
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
 
 mapping(hernia,
-			s(vb(X), hernia), Respuesta):-
+			s(vb(X), art(Y), hernia), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
 
 mapping(quebradurapierna,
