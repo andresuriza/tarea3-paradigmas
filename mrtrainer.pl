@@ -1029,12 +1029,17 @@ rutinas_db(crossfit,principiante, bien,
     un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 10 dominadas, 10 lagartijas
     10 toques a la barra con los pies y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.').
 
-%falta esta rutina
 rutinas_db(crossfit,principiante, quebradurapierna, 
-	'').
-%falta esta rutina
+	'No recomiendo realizar crossfit con una quebradura en una pierna, pero puedo darte una rutina para entrenar otras partes del cuerpo:
+    Primero calienta con un tabata donde cada ventana activa de 20 segundos alterna entre abdominales y lagartijas con las rodillas en el
+    piso, puedes colocar una almohadilla en las rodillas de ser necesario, esto por 6 minutos. Luego para la rutina, realiza un AMRAP (la 
+    mayor cantidad de repeticiones por tiempo) en 20 minutos, donde una ronda consiste de 10 lagartijas, 10 abdominales y 5 dips en aros.').
+
 rutinas_db(crossfit,principiante, quebradurabrazo, 
-	'').
+	'No recomiendo realizar crossfit con una quebradura en un brazo, pero puedo darte una rutina para entrenar otras partes del cuerpo:
+    Primero estira bien las piernas y el torzo por 5 minutos. Luego para calentar realiza un EMOM (cada minuto un ejercicio) de 10 minutos
+    de sentadillas y abdominales, la mayor cantidad posible en cada ventana, alternando. Luego para la rutina, en 20 minutos completa 5 rondas
+    de correr 500m, 20 sentadillas y 10 thrusters con mancuerna de 25lb con el brazo sano').
 
 
 rutinas_db(crossfit,principiante, asmatico,
@@ -1057,10 +1062,10 @@ rutinas_db(crossfit,principiante, hipertension,
     estirar y estar hidratandote bien y no corras mucho').
 
 rutinas_db(crossfit,principiante, hernia, 
-	'Estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego para calentar realizar dominadas negativas, brincar a la barra y descender lentamente, 5 series 
-	de 3 repeticiones (5x3), luego en un tabta de 20 segundos activos y 10 de descanso, realizar cada ventana activa plancha y escaladores, repitiendo un total de 12 veces (6 minutos). 
-	Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos, donde una ronda consiste en 10 dominadas, 10 lagartijas 10 toques a la barra con los pies y 
-	200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.').
+	'Con una hernia, te recomiendo no hacer mucho esfuerzo. Primero estira los brazos y piernas por unos 5 minutos y trota unos 500m a un paso moderado para calentar. Luego 
+    para calentar realiza lagartijas con las rodillas en el piso, 5 series de 5 repeticiones (5x5), luego en un tabata de 20 segundos activos y 10 de descanso, realizar cada 
+    ventana activa abdominales y escaladores, repitiendo un total de 12 veces (6 minutos). Para la rutina, seran la mayor cantidad de repeticiones posibles (AMRAP) en 20 minutos,
+    donde una ronda consiste en 10 abdominales, 10 lagartijas con rodillas en el piso, 10 v-ups y 200 metros de corrida. Al terminar, recuerda estirar y estar hidratandote bien.').
 
 %rutinas intermedio crossfit
 rutinas_db(crossfit,intermedio, bien,
@@ -1070,40 +1075,47 @@ rutinas_db(crossfit,intermedio, bien,
     y 30 segundos en plancha. Para la rutina, realizaras tenras 20 minutos para completar 10 repeticiones de 5 arranques a un 60% de su capacidad de peso, 15 toques de los pies a la barra y 10 saltos al cajon en la altura intermedia.
     Al finalizar, recuerda estirar completamente e hidratarte bien.').
 
-%falta esta rutina
-rutinas_db(crossfit,intermedio, quebradurapierna,
-	'').
-%falta esta rutina
-rutinas_db(crossfit,intermedio,quebradurabrazo, 
-	'').
+rutinas_db(crossfit,intermedio, quebradurapierna, 
+	'No recomiendo realizar crossfit con una quebradura en una pierna, pero puedo darte una rutina para entrenar otras partes del cuerpo:
+    Primero calienta con un tabata donde cada ventana activa de 20 segundos alterna entre abdominales y lagartijas con las rodillas en el
+    piso, puedes colocar una almohadilla en las rodillas de ser necesario, esto por 6 minutos. Luego para la rutina, realiza un AMRAP (la 
+    mayor cantidad de repeticiones por tiempo) en 20 minutos, donde una ronda consiste de 10 lagartijas, 10 abdominales y 5 dips en aros.').
+
+rutinas_db(crossfit,intermedio, quebradurabrazo, 
+	'No recomiendo realizar crossfit con una quebradura en un brazo, pero puedo darte una rutina para entrenar otras partes del cuerpo:
+    Primero estira bien las piernas y el torzo por 5 minutos. Luego para calentar realiza un EMOM (cada minuto un ejercicio) de 10 minutos
+    de sentadillas y abdominales, la mayor cantidad posible en cada ventana, alternando. Luego para la rutina, en 20 minutos completa 5 rondas
+    de correr 500m, 25 sentadillas y 10 thrusters con mancuerna de 35lb con el brazo sano').
 
 rutinas_db(crossfit,intermedio, asmatico, 
-	'Estirar los brazos y piernas por unos 5 minutos y trotar unos 800m para calentar. Primero calentaras con 5 rondas de burgener para arranque, agarrando la barra con agarre abierto e iniciando
+	'Recomiendo que al realizar esta rutina, la realices a un paso moderado y tomando descansos para respirar de vez en cuando para que evites alguna complicacion
+    Primero, vas a estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego calentaras con 5 rondas de burgener para arranque, agarrando la barra con agarre abierto e iniciando
     desde la altura de la cadera, realiza 3 jalones, 3 jalones hasta el pecho y 3 arranques completos que consiste en la combinacion de los movimientos anteriores, siempre manteniendo la
     barra bien pegada al cuerpo, hasta llevarla a la altura arriba de la cabeza. Luego realiza por 10 minutos la mayor cantidad de rondas posibles de 5 dominadas hasta el pecho, 5 toques a la barra con los pies
-    y 30 segundos en plancha. Para la rutina, realizaras tenras 20 minutos para completar 10 repeticiones de 5 arranques a un 60% de su capacidad de peso, 15 toques de los pies a la barra y 10 saltos al cajon en la altura intermedia.
-    Al finalizar, recuerda estirar completamente e hidratarte bien.').
+    y 30 segundos en plancha. Para la rutina, realizaras tenras 15 minutos para completar 5 repeticiones de 5 arranques a un 45% de su capacidad de peso, 15 toques de los pies a la barra y 5 saltos al cajon en la altura intermedia
+    (puedes caminar los saltos para evitar complicaciones). Al finalizar, recuerda estirar completamente e hidratarte bien.').
 
 rutinas_db(crossfit,intermedio, neumonia, 
-	'Estirar los brazos y piernas por unos 5 minutos y trotar unos 800m para calentar. Primero calentaras con 5 rondas de burgener para arranque, agarrando la barra con agarre abierto e iniciando
+	'Recomiendo que al realizar esta rutina, la realices a un paso moderado y tomando descansos para respirar de vez en cuando para que evites alguna complicacion
+    Primero, vas a estirar los brazos y piernas por unos 5 minutos y trotar unos 500m para calentar. Luego calentaras con 5 rondas de burgener para arranque, agarrando la barra con agarre abierto e iniciando
     desde la altura de la cadera, realiza 3 jalones, 3 jalones hasta el pecho y 3 arranques completos que consiste en la combinacion de los movimientos anteriores, siempre manteniendo la
     barra bien pegada al cuerpo, hasta llevarla a la altura arriba de la cabeza. Luego realiza por 10 minutos la mayor cantidad de rondas posibles de 5 dominadas hasta el pecho, 5 toques a la barra con los pies
-    y 30 segundos en plancha. Para la rutina, realizaras tenras 20 minutos para completar 10 repeticiones de 5 arranques a un 60% de su capacidad de peso, 15 toques de los pies a la barra y 10 saltos al cajon en la altura intermedia.
-    Al finalizar, recuerda estirar completamente e hidratarte bien.').
+    y 30 segundos en plancha. Para la rutina, realizaras tenras 15 minutos para completar 5 repeticiones de 5 arranques a un 45% de su capacidad de peso, 15 toques de los pies a la barra y 5 saltos al cajon en la altura intermedia
+    (puedes caminar los saltos para evitar complicaciones). Al finalizar, recuerda estirar completamente e hidratarte bien.').
 
 rutinas_db(crossfit,intermedio, hipertension,
-	'Estirar los brazos y piernas por unos 5 minutos y trotar unos 800m para calentar. Primero calentaras con 5 rondas de burgener para arranque, agarrando la barra con agarre abierto e iniciando
+	'Estirar los brazos y piernas por unos 5 minutos y trotar a un paso moderado unos 400m para calentar. Primero calentaras con 5 rondas de burgener para arranque, agarrando la barra con agarre abierto e iniciando
     desde la altura de la cadera, realiza 3 jalones, 3 jalones hasta el pecho y 3 arranques completos que consiste en la combinacion de los movimientos anteriores, siempre manteniendo la
     barra bien pegada al cuerpo, hasta llevarla a la altura arriba de la cabeza. Luego realiza por 10 minutos la mayor cantidad de rondas posibles de 5 dominadas hasta el pecho, 5 toques a la barra con los pies
-    y 30 segundos en plancha. Para la rutina, realizaras tenras 20 minutos para completar 10 repeticiones de 5 arranques a un 60% de su capacidad de peso, 15 toques de los pies a la barra y 10 saltos al cajon en la altura intermedia.
-    Al finalizar, recuerda estirar completamente e hidratarte bien.').
+    y 30 segundos en plancha (descansa a ratos almenos a la mitad). Para la rutina, tendras 20 minutos para completar 10 repeticiones de 5 arranques a un 30% de su capacidad de peso, 9 toques de los pies a la barra y 10 subidas
+    al cajon caminando en la altura intermedia. Al finalizar, recuerda estirar completamente e hidratarte bien.').
 
 rutinas_db(crossfit,intermedio, hernia,
-	'Estirar los brazos y piernas por unos 5 minutos y trotar unos 800m para calentar. Primero calentaras con 5 rondas de burgener para arranque, agarrando la barra con agarre abierto e iniciando
-    desde la altura de la cadera, realiza 3 jalones, 3 jalones hasta el pecho y 3 arranques completos que consiste en la combinacion de los movimientos anteriores, siempre manteniendo la
-    barra bien pegada al cuerpo, hasta llevarla a la altura arriba de la cabeza. Luego realiza por 10 minutos la mayor cantidad de rondas posibles de 5 dominadas hasta el pecho, 5 toques a la barra con los pies
-    y 30 segundos en plancha. Para la rutina, realizaras tenras 20 minutos para completar 10 repeticiones de 5 arranques a un 60% de su capacidad de peso, 15 toques de los pies a la barra y 10 saltos al cajon en la altura intermedia.
-    Al finalizar, recuerda estirar completamente e hidratarte bien.').
+	'Estirar los brazos y piernas por unos 5 minutos y trotar a un paso moderado unos 400m para calentar. Primero calentaras con 5 rondas de burgener para arranque, agarrando la barra con agarre abierto e iniciando
+    desde la altura de la cadera, realiza 1 jalon, 1 jalon hasta el pecho y 1 arranque completo que consiste en la combinacion de los movimientos anteriores, siempre manteniendo la
+    barra bien pegada al cuerpo, hasta llevarla a la altura arriba de la cabeza. Luego realiza por 10 minutos la mayor cantidad de rondas posibles de 5 dominadas hasta el pecho, 5 sentadillas
+    y 30 segundos de sentadilla isometrica(apoyate en la pared para evitar sobresfuerzo). Para la rutina, tendras 20 minutos para completar 10 repeticiones de 5 arranques con solo la barra,
+    9 toques de los pies a la barra y 10 subidas al cajon caminando en la altura intermedia. Al finalizar, recuerda estirar completamente e hidratarte bien.').
 
 %rutinas avanzado crossfit
 rutinas_db(crossfit,avanzado,bien,
@@ -1112,37 +1124,49 @@ rutinas_db(crossfit,avanzado,bien,
     con un peso de 145lb y 10 saltos al cajon en la altura mas alta. La duracion sera de 10 minutos para un total de 10 rondas, en caso de no terminar una antes que termine el tiempo, debes dejarla donde quedo
     e iniciar con los 2 arranques de una vez. Al finalizar estira completamente y recuerda hidratarte bien.').
 
-%Falta esta rutina
-rutinas_db(crossfit,avanzado,quebradurapierna, 
-	'').
-%Falta esta rutina
-rutinas_db(crossfit,avanzado,quebradurabrazo, 
-	'').
+rutinas_db(crossfit,avanzado, quebradurapierna, 
+	'No recomiendo realizar crossfit con una quebradura en una pierna, pero puedo darte una rutina para entrenar otras partes del cuerpo:
+    Primero calienta con un tabata donde cada ventana activa de 20 segundos alterna entre abdominales y lagartijas con las rodillas en el
+    piso, puedes colocar una almohadilla en las rodillas de ser necesario, esto por 6 minutos. Luego para la rutina, realiza un AMRAP (la 
+    mayor cantidad de repeticiones por tiempo) en 20 minutos, donde una ronda consiste de 20 lagartijas, 15 abdominales y 10 dips en aros.').
 
+rutinas_db(crossfit,avanzado, quebradurabrazo, 
+	'No recomiendo realizar crossfit con una quebradura en un brazo, pero puedo darte una rutina para entrenar otras partes del cuerpo:
+    Primero estira bien las piernas y el torzo por 5 minutos. Luego para calentar realiza un EMOM (cada minuto un ejercicio) de 10 minutos
+    de sentadillas y abdominales, la mayor cantidad posible en cada ventana, alternando. Luego para la rutina, en 20 minutos completa 10 rondas
+    de correr 500m, 20 sentadillas y 10 thrusters con mancuerna de 55lb con el brazo sano').
 
 rutinas_db(crossfit,avanzado, asmatico,
-	'Estirar los brazos y piernas por unos 5 minutos y trotar 1km para calentar. Para calentar tendras 10 minutos para realizar la mayor cantidad de rondas de 20 saltos dobles y 10 saltos al cajon en la 
-    altura intermedia. Luego 5 rondas de 1 arranque completo, 1 arranque con sentadilla y 1 arranque en posicion elevada. Para la rutina realiza un EMOM donde cada minuto debes completar 2 arranques con sentadilla
-    con un peso de 145lb y 10 saltos al cajon en la altura mas alta. La duracion sera de 10 minutos para un total de 10 rondas, en caso de no terminar una antes que termine el tiempo, debes dejarla donde quedo
-    e iniciar con los 2 arranques de una vez. Al finalizar estira completamente y recuerda hidratarte bien.').
+	'Manten un ritmo constante y con algunas pausas para respirar ya que te podrias hiperventilar con facilidad. Primero vas a estirar los brazos 
+    y piernas por unos 5 minutos y luego trota 500m para calentar. Para calentar tendras 10 minutos para realizar la mayor cantidad de rondas de 
+    10 saltos dobles y 5 saltos al cajon en la altura intermedia. Luego 5 rondas de 1 arranque completo, 1 arranque con sentadilla y 1 arranque en 
+    posicion elevada. Para la rutina realiza un EMOM donde cada minuto debes completar 2 arranques con sentadilla con un peso de 95lb y 5 saltos 
+    al cajon en la altura intermedia. La duracion sera de 10 minutos para un total de 10 rondas, en caso de no terminar una antes que termine el tiempo, 
+    debes dejarla donde quedo e iniciar con los 2 arranques de una vez. Al finalizar estira completamente y recuerda hidratarte bien.').
 
 rutinas_db(crossfit,avanzado, neumonia, 
-	'Estirar los brazos y piernas por unos 5 minutos y trotar 1km para calentar. Para calentar tendras 10 minutos para realizar la mayor cantidad de rondas de 20 saltos dobles y 10 saltos al cajon en la 
-    altura intermedia. Luego 5 rondas de 1 arranque completo, 1 arranque con sentadilla y 1 arranque en posicion elevada. Para la rutina realiza un EMOM donde cada minuto debes completar 2 arranques con sentadilla
-    con un peso de 145lb y 10 saltos al cajon en la altura mas alta. La duracion sera de 10 minutos para un total de 10 rondas, en caso de no terminar una antes que termine el tiempo, debes dejarla donde quedo
-    e iniciar con los 2 arranques de una vez. Al finalizar estira completamente y recuerda hidratarte bien.').
+	'Manten un ritmo constante y con algunas pausas para respirar ya que te podrias hiperventilar con facilidad. Primero vas a estirar los brazos 
+    y piernas por unos 5 minutos y luego trota 500m para calentar. Para calentar tendras 10 minutos para realizar la mayor cantidad de rondas de 
+    10 saltos dobles y 5 saltos al cajon en la altura intermedia. Luego 5 rondas de 1 arranque completo, 1 arranque con sentadilla y 1 arranque en 
+    posicion elevada. Para la rutina realiza un EMOM donde cada minuto debes completar 2 arranques con sentadilla con un peso de 95lb y 5 saltos 
+    al cajon en la altura intermedia. La duracion sera de 10 minutos para un total de 10 rondas, en caso de no terminar una antes que termine el tiempo, 
+    debes dejarla donde quedo e iniciar con los 2 arranques de una vez. Al finalizar estira completamente y recuerda hidratarte bien.').
 
 rutinas_db(crossfit,avanzado, hipertension, 
-	'Estirar los brazos y piernas por unos 5 minutos y trotar 1km para calentar. Para calentar tendras 10 minutos para realizar la mayor cantidad de rondas de 20 saltos dobles y 10 saltos al cajon en la 
-    altura intermedia. Luego 5 rondas de 1 arranque completo, 1 arranque con sentadilla y 1 arranque en posicion elevada. Para la rutina realiza un EMOM donde cada minuto debes completar 2 arranques con sentadilla
-    con un peso de 145lb y 10 saltos al cajon en la altura mas alta. La duracion sera de 10 minutos para un total de 10 rondas, en caso de no terminar una antes que termine el tiempo, debes dejarla donde quedo
-    e iniciar con los 2 arranques de una vez. Al finalizar estira completamente y recuerda hidratarte bien.').
+	'Estirar los brazos y piernas por unos 5 minutos y trotar 500m para calentar a un ritmo moderado. Para calentar tendras 10 minutos para realizar 
+    la mayor cantidad de rondas de 10 saltos dobles y 10 subidas caminando al cajon en la altura intermedia. Luego 5 rondas de 1 arranque completo, 
+    1 arranque con sentadilla y 1 arranque en posicion elevada con solo la barra. Para la rutina realiza un EMOM donde cada minuto debes completar 
+    2 arranques con sentadilla con un peso de 95lb y 3 saltos al cajon en la altura mas alta. La duracion sera de 10 minutos para un total de 10 
+    rondas, en caso de no terminar una antes que termine el tiempo, debes dejarla donde quedo e iniciar con los 2 arranques de una vez. Al finalizar estira completamente y recuerda hidratarte bien.').
 
 rutinas_db(crossfit,avanzado, hernia, 
-	'Estirar los brazos y piernas por unos 5 minutos y trotar 1km para calentar. Para calentar tendras 10 minutos para realizar la mayor cantidad de rondas de 20 saltos dobles y 10 saltos al cajon en la 
-    altura intermedia. Luego 5 rondas de 1 arranque completo, 1 arranque con sentadilla y 1 arranque en posicion elevada. Para la rutina realiza un EMOM donde cada minuto debes completar 2 arranques con sentadilla
-    con un peso de 145lb y 10 saltos al cajon en la altura mas alta. La duracion sera de 10 minutos para un total de 10 rondas, en caso de no terminar una antes que termine el tiempo, debes dejarla donde quedo
-    e iniciar con los 2 arranques de una vez. Al finalizar estira completamente y recuerda hidratarte bien.').
+	'No cargues peso en la rutina que te voy a dar, tampoco hagas mucha fuerza, si necesitas descansar, detente un momento para evitar empeorar. Estirar 
+    los brazos y piernas por unos 5 minutos y trotar 400m para calentar. Para calentar tendras 10 minutos para realizar la mayor cantidad de rondas de 10
+    saltos sencillos a la cuerda y 10 subidas caminando al cajon en la altura mas baja. Luego 5 rondas de 1 arranque completo y 1 arranque con sentadilla,
+    haz una pausa entre cada ronda. Para la rutina realiza un EMOM donde cada minuto debes completar 2 arranques con sentadilla con unicamente la barra y 
+    5 subidas caminando al cajon en la altura intermedia. La duracion sera de 10 minutos para un total de 10 rondas, en caso de no terminar una antes que 
+    termine el tiempo, debes dejarla donde quedo e iniciar con los 2 arranques de una vez, recuerda realizarlos lentamente y sin hacer mucha fuerza. Al 
+    finalizar estira completamente y recuerda hidratarte bien.').
 
 %rutinas principiante halterofilia
 rutinas_db(halterofilia, principiante,bien, 
@@ -1151,34 +1175,37 @@ rutinas_db(halterofilia, principiante,bien,
     Y para finalizar, con un disco de 10kg a cada lado, realiza 30 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.').
 
 rutinas_db(halterofilia, principiante,asmatico, 
-	'Para calentar iniciaremos con solo la barra haciendo 5 jalones, 5 jalones al pecho y 5 cleans que seria combinando los movimientos anteriores y llevando la barra hasta los hombros, realiza esto 15 veces. Luego con solo la barra 
-    realiza 20 cleans pausados, uno por uno, para familiarizarte con el ejercicio, siempre manteniendo la barra bien pegada al cuerpo. Luego, realiza 10 rondas de 5 lagartijas 10 abdominales y 15 sentadillas, para in construyendo fuerza.
-    Y para finalizar, con un disco de 10kg a cada lado, realiza 30 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.').
+	'Para calentar iniciaremos con solo la barra haciendo 5 jalones, 5 jalones al pecho y 5 cleans que seria combinando los movimientos anteriores y llevando 
+    la barra hasta los hombros, realiza esto 15 veces. Luego con solo la barra realiza 20 cleans pausados, uno por uno, para familiarizarte con el ejercicio, 
+    (recuerda descannsar un intervalo de tiempo entre cada uno, almenos 5 segundos, no te agites) siempre manteniendo la barra bien pegada al cuerpo. Luego, 
+    realiza 10 rondas de 5 lagartijas 10 abdominales y 15 sentadillas, para in construyendo fuerza. Para finalizar, con un disco de 10kg a cada lado, realiza 
+    15 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.').
 
 rutinas_db(halterofilia, principiante,neumonia, 
-	'Para calentar iniciaremos con solo la barra haciendo 5 jalones, 5 jalones al pecho y 5 cleans que seria combinando los movimientos anteriores y llevando la barra hasta los hombros, realiza esto 15 veces. Luego con solo la barra 
-    realiza 20 cleans pausados, uno por uno, para familiarizarte con el ejercicio, siempre manteniendo la barra bien pegada al cuerpo. Luego, realiza 10 rondas de 5 lagartijas 10 abdominales y 15 sentadillas, para in construyendo fuerza.
-    Y para finalizar, con un disco de 10kg a cada lado, realiza 30 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.').
+	'Para calentar iniciaremos con solo la barra haciendo 5 jalones, 5 jalones al pecho y 5 cleans que seria combinando los movimientos anteriores y llevando 
+    la barra hasta los hombros, realiza esto 15 veces. Luego con solo la barra realiza 20 cleans pausados, uno por uno, para familiarizarte con el ejercicio, 
+    (recuerda descannsar un intervalo de tiempo entre cada uno, almenos 5 segundos, no te agites) siempre manteniendo la barra bien pegada al cuerpo. Luego, 
+    realiza 10 rondas de 5 lagartijas 10 abdominales y 15 sentadillas, para in construyendo fuerza. Para finalizar, con un disco de 10kg a cada lado, realiza 
+    15 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.').
 
 rutinas_db(halterofilia, principiante, hipertension,
-	'Para calentar iniciaremos con solo la barra haciendo 5 jalones, 5 jalones al pecho y 5 cleans que seria combinando los movimientos anteriores y llevando la barra hasta los hombros, realiza esto 15 veces. Luego con solo la barra 
-    realiza 20 cleans pausados, uno por uno, para familiarizarte con el ejercicio, siempre manteniendo la barra bien pegada al cuerpo. Luego, realiza 10 rondas de 5 lagartijas 10 abdominales y 15 sentadillas, para in construyendo fuerza.
-    Y para finalizar, con un disco de 10kg a cada lado, realiza 30 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.').
+	'Para calentar iniciaremos con solo la barra haciendo 5 jalones, 5 jalones al pecho y 5 cleans que seria combinando los movimientos anteriores y llevando 
+    la barra hasta los hombros, realiza esto 8 veces y pausando entre cada movimiento, no te agites. Luego con solo la barra realiza 20 cleans pausados, uno 
+    por uno, para familiarizarte con el ejercicio(recuerda descannsar un intervalo de tiempo entre cada uno, almenos 5 segundos, no te agites), siempre 
+    manteniendo la barra bien pegada al cuerpo. Luego, realiza 5 rondas de 5 lagartijas 10 abdominales y 15 sentadillas, para in construyendo fuerza. 
+    Para finalizar, con un disco de 5kg a cada lado, realiza 10 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.').
 
 rutinas_db(halterofilia, principiante, quebradurapierna,
-	'Para calentar iniciaremos con solo la barra haciendo 5 jalones, 5 jalones al pecho y 5 cleans que seria combinando los movimientos anteriores y llevando la barra hasta los hombros, realiza esto 15 veces. Luego con solo la barra 
-    realiza 20 cleans pausados, uno por uno, para familiarizarte con el ejercicio, siempre manteniendo la barra bien pegada al cuerpo. Luego, realiza 10 rondas de 5 lagartijas 10 abdominales y 15 sentadillas, para in construyendo fuerza.
-    Y para finalizar, con un disco de 10kg a cada lado, realiza 30 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.').
+	'No recomiendo hacer halterofilia con un brazo quebrado, pero te recomiendo para mantener la fuerza y condicion, que realices 15 series de 5 sentadillas y 5
+    abdominales').
 
 rutinas_db(halterofilia, principiante, quebradurabrazo,
-	'Para calentar iniciaremos con solo la barra haciendo 5 jalones, 5 jalones al pecho y 5 cleans que seria combinando los movimientos anteriores y llevando la barra hasta los hombros, realiza esto 15 veces. Luego con solo la barra 
-    realiza 20 cleans pausados, uno por uno, para familiarizarte con el ejercicio, siempre manteniendo la barra bien pegada al cuerpo. Luego, realiza 10 rondas de 5 lagartijas 10 abdominales y 15 sentadillas, para in construyendo fuerza.
-    Y para finalizar, con un disco de 10kg a cada lado, realiza 30 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.').
+	'No recomiendo hacer halterofilia con un brazo quebrado, pero te recomiendo para mantener la fuerza y condicion, que realices 15 series de 5 sentadillas y 5
+    abdominales').
 
 rutinas_db(halterofilia, principiante, hernia,
-	'Para calentar iniciaremos con solo la barra haciendo 5 jalones, 5 jalones al pecho y 5 cleans que seria combinando los movimientos anteriores y llevando la barra hasta los hombros, realiza esto 15 veces. Luego con solo la barra 
-    realiza 20 cleans pausados, uno por uno, para familiarizarte con el ejercicio, siempre manteniendo la barra bien pegada al cuerpo. Luego, realiza 10 rondas de 5 lagartijas 10 abdominales y 15 sentadillas, para in construyendo fuerza.
-    Y para finalizar, con un disco de 10kg a cada lado, realiza 30 repeticiones de clean, uno por uno, a un paso moderado, soltando la barra cada vez.').
+	'No recomiendo realizar halterofilia con una hernia ya que es un ejercicio de mucho peso. Si buscas mantener la condicion, puedes salir a trotar a un paso
+    lento por una media hora la distancia que alcances.').
 
 %rutinas intermedio halterofilia
 rutinas_db(halterofilia, intermedio,bien, 
@@ -1186,28 +1213,34 @@ rutinas_db(halterofilia, intermedio,bien,
     descansa por unos 5 minutos, caminando sin sentarte y luego carga un 50% del peso maximo de arranque y realiza 30 repeticiones a un paso moderado. Recuerda respirar y al finalizar estira bien el cuerpo.').
 
 rutinas_db(halterofilia, intermedio,neumonia, 
-	'Para calentar iniciaremos con 30 repeticiones de arranque usando solo la barra. Una vez hecho esto, completa 20 repeticiones de peso muerto con 20kg a cada lado, de forma moderada, sin apuro. Una vez terminado,
-    descansa por unos 5 minutos, caminando sin sentarte y luego carga un 50% del peso maximo de arranque y realiza 30 repeticiones a un paso moderado. Recuerda respirar y al finalizar estira bien el cuerpo.').
+	'Para calentar iniciaremos con 20 repeticiones de arranque usando solo la barra. Una vez hecho esto, completa 15 repeticiones de peso muerto con 10kg a cada lado,
+    de forma moderada, sin apuro y respirando entre cada repeticion. Una vez terminado, descansa por unos 5 minutos, caminando sin sentarte y luego carga un 40% del 
+    peso maximo de arranque y realiza 20 repeticiones a un paso moderado. Recuerda respirar entre cada repeticion para evitar cualquier inconveniente con tu condicion 
+    y al finalizar estira bien el cuerpo.').
 
 rutinas_db(halterofilia, intermedio,asmatico, 
-	'Para calentar iniciaremos con 30 repeticiones de arranque usando solo la barra. Una vez hecho esto, completa 20 repeticiones de peso muerto con 20kg a cada lado, de forma moderada, sin apuro. Una vez terminado,
-    descansa por unos 5 minutos, caminando sin sentarte y luego carga un 50% del peso maximo de arranque y realiza 30 repeticiones a un paso moderado. Recuerda respirar y al finalizar estira bien el cuerpo.').
-
-rutinas_db(halterofilia, intermedio, hernia,
-	'Para calentar iniciaremos con 30 repeticiones de arranque usando solo la barra. Una vez hecho esto, completa 20 repeticiones de peso muerto con 20kg a cada lado, de forma moderada, sin apuro. Una vez terminado,
-    descansa por unos 5 minutos, caminando sin sentarte y luego carga un 50% del peso maximo de arranque y realiza 30 repeticiones a un paso moderado. Recuerda respirar y al finalizar estira bien el cuerpo.').
-
-rutinas_db(halterofilia, intermedio, quebradurabrazo,
-	'Para calentar iniciaremos con 30 repeticiones de arranque usando solo la barra. Una vez hecho esto, completa 20 repeticiones de peso muerto con 20kg a cada lado, de forma moderada, sin apuro. Una vez terminado,
-    descansa por unos 5 minutos, caminando sin sentarte y luego carga un 50% del peso maximo de arranque y realiza 30 repeticiones a un paso moderado. Recuerda respirar y al finalizar estira bien el cuerpo.').
-
-rutinas_db(halterofilia, intermedio, quebradurapierna,
-	'Para calentar iniciaremos con 30 repeticiones de arranque usando solo la barra. Una vez hecho esto, completa 20 repeticiones de peso muerto con 20kg a cada lado, de forma moderada, sin apuro. Una vez terminado,
-    descansa por unos 5 minutos, caminando sin sentarte y luego carga un 50% del peso maximo de arranque y realiza 30 repeticiones a un paso moderado. Recuerda respirar y al finalizar estira bien el cuerpo.').
+	'Para calentar iniciaremos con 20 repeticiones de arranque usando solo la barra. Una vez hecho esto, completa 15 repeticiones de peso muerto con 10kg a cada lado,
+    de forma moderada, sin apuro y respirando entre cada repeticion con un descanso. Una vez terminado, descansa por unos 5 minutos, caminando sin sentarte y luego carga un 40% del 
+    peso maximo de arranque y realiza 20 repeticiones a un paso moderado. Recuerda respirar entre cada repeticion para evitar cualquier inconveniente con tu condicion 
+    y al finalizar estira bien el cuerpo.').
 
 rutinas_db(halterofilia, intermedio, hipertension,
-	'Para calentar iniciaremos con 30 repeticiones de arranque usando solo la barra. Una vez hecho esto, completa 20 repeticiones de peso muerto con 20kg a cada lado, de forma moderada, sin apuro. Una vez terminado,
-    descansa por unos 5 minutos, caminando sin sentarte y luego carga un 50% del peso maximo de arranque y realiza 30 repeticiones a un paso moderado. Recuerda respirar y al finalizar estira bien el cuerpo.').
+	'Para calentar iniciaremos con 20 repeticiones de arranque usando solo la barra. Una vez hecho esto, completa 15 repeticiones de peso muerto con 10kg a cada lado,
+    de forma moderada, sin apuro y respirando entre cada repeticion. Una vez terminado, descansa por unos 5 minutos, caminando sin sentarte y luego carga un 20% del 
+    peso maximo de arranque y realiza 15 repeticiones a un paso moderado. Recuerda descansar entre cada repeticion para evitar cualquier inconveniente con tu condicion 
+    y al finalizar estira bien el cuerpo.').
+
+rutinas_db(halterofilia, intermedio, quebradurapierna,
+	'No recomiendo hacer halterofilia con un brazo quebrado, pero te recomiendo para mantener la fuerza y condicion, que realices 15 series de 5 sentadillas y 5
+    abdominales').
+
+rutinas_db(halterofilia, intermedio, quebradurabrazo,
+	'No recomiendo hacer halterofilia con un brazo quebrado, pero te recomiendo para mantener la fuerza y condicion, que realices 15 series de 5 sentadillas y 5
+    abdominales').
+
+rutinas_db(halterofilia, intermedio, hernia,
+	'No recomiendo realizar halterofilia con una hernia ya que es un ejercicio de mucho peso. Si buscas mantener la condicion, puedes salir a trotar a un paso
+    lento por una media hora la distancia que alcances.').
 
 %rutinas avanzado halterofilia
 rutinas_db(halterofilia, avanzado,bien, 
@@ -1226,17 +1259,18 @@ rutinas_db(halterofilia, avanzado, hernia,
 	'Para calentar inicia trotando unos 500m, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento. Luego realiza 10 rondas de 5 repeticiones de 
     levantamientos arriba de la cabeza, lentamente para ir calentando el movimiento. Por ultimo, realiza 40 repeticiones de levantamientos clean y jerk con un peso del 50% de tu RM en el movimiento de jerk.').
 
-rutinas_db(halterofilia, avanzado, quebradurabrazo,
-	'Para calentar inicia trotando unos 500m, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento. Luego realiza 10 rondas de 5 repeticiones de 
-    levantamientos arriba de la cabeza, lentamente para ir calentando el movimiento. Por ultimo, realiza 40 repeticiones de levantamientos clean y jerk con un peso del 50% de tu RM en el movimiento de jerk.').
-
 rutinas_db(halterofilia, avanzado, quebradurapierna,
-	'Para calentar inicia trotando unos 500m, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento. Luego realiza 10 rondas de 5 repeticiones de 
-    levantamientos arriba de la cabeza, lentamente para ir calentando el movimiento. Por ultimo, realiza 40 repeticiones de levantamientos clean y jerk con un peso del 50% de tu RM en el movimiento de jerk.').
+	'No recomiendo hacer halterofilia con un brazo quebrado, pero te recomiendo para mantener la fuerza y condicion, que realices 25 series de 5 sentadillas y 5
+    abdominales').
 
-rutinas_db(halterofilia, avanzado, hipertension,
-	'Para calentar inicia trotando unos 500m, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento. Luego realiza 10 rondas de 5 repeticiones de 
-    levantamientos arriba de la cabeza, lentamente para ir calentando el movimiento. Por ultimo, realiza 40 repeticiones de levantamientos clean y jerk con un peso del 50% de tu RM en el movimiento de jerk.').
+rutinas_db(halterofilia, avanzado, quebradurabrazo,
+	'No recomiendo hacer halterofilia con un brazo quebrado, pero te recomiendo para mantener la fuerza y condicion, que realices 25 series de 5 sentadillas y 5
+    abdominales').
+
+rutinas_db(halterofilia, avanzado, hernia,
+	'No recomiendo realizar halterofilia con una hernia ya que es un ejercicio de mucho peso. Si buscas mantener la condicion, puedes salir a trotar a un paso
+    lento por una hora o hora y media la distancia que alcances.').
+
 
 padecimientos(['hernia','fractura en brazos','fractura en piernas','hipertension','asmatico','neumonia']).
 
