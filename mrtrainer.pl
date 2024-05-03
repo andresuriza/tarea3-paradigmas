@@ -1248,16 +1248,22 @@ rutinas_db(halterofilia, avanzado,bien,
     levantamientos arriba de la cabeza, lentamente para ir calentando el movimiento. Por ultimo, realiza 40 repeticiones de levantamientos clean y jerk con un peso del 50% de tu RM en el movimiento de jerk.').
 
 rutinas_db(halterofilia, avanzado,neumonia, 
-	'Para calentar inicia trotando unos 500m, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento. Luego realiza 10 rondas de 5 repeticiones de 
-    levantamientos arriba de la cabeza, lentamente para ir calentando el movimiento. Por ultimo, realiza 40 repeticiones de levantamientos clean y jerk con un peso del 50% de tu RM en el movimiento de jerk.').
+	'Para calentar inicia trotando unos 500m a un paso moderado, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento
+    pero recuerda pausar entre cada ronda almenos unos 30 segundos para no hiperventilarte. Luego realiza 10 rondas de 5 repeticiones de levantamientos arriba
+    de la cabeza, lentamente para ir calentando el movimiento y recuerda hacerlo pausado. Por ultimo, realiza 25 repeticiones de levantamientos clean y jerk con 
+    un peso del 50% de tu RM en el movimiento de jerk.').
 
 rutinas_db(halterofilia, avanzado,asmatico, 
-	'Para calentar inicia trotando unos 500m, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento. Luego realiza 10 rondas de 5 repeticiones de 
-    levantamientos arriba de la cabeza, lentamente para ir calentando el movimiento. Por ultimo, realiza 40 repeticiones de levantamientos clean y jerk con un peso del 50% de tu RM en el movimiento de jerk.').
+	'Para calentar inicia trotando unos 500m a un paso moderado, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento
+    pero recuerda pausar entre cada ronda almenos unos 30 segundos para no hiperventilarte. Luego realiza 10 rondas de 5 repeticiones de levantamientos arriba
+    de la cabeza, lentamente para ir calentando el movimiento y recuerda hacerlo pausado. Por ultimo, realiza 25 repeticiones de levantamientos clean y jerk con 
+    un peso del 50% de tu RM en el movimiento de jerk.').
 
-rutinas_db(halterofilia, avanzado, hernia,
-	'Para calentar inicia trotando unos 500m, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento. Luego realiza 10 rondas de 5 repeticiones de 
-    levantamientos arriba de la cabeza, lentamente para ir calentando el movimiento. Por ultimo, realiza 40 repeticiones de levantamientos clean y jerk con un peso del 50% de tu RM en el movimiento de jerk.').
+rutinas_db(halterofilia, avanzado, hipertension,
+	'Para calentar inicia trotando unos 400m a un paso moderado, luego con la barra, realiza 10 rondas de burgener para clean para ir calentando el movimiento
+    pero recuerda pausar entre cada ronda almenos unos 30 segundos para no agitarte. Luego realiza 15 rondas de 2 repeticiones de levantamientos arriba
+    de la cabeza, lentamente para ir calentando el movimiento y recuerda hacerlo pausado, no te agites. Por ultimo, realiza 20 repeticiones de levantamientos clean y jerk con 
+    un peso del 50% de tu RM en el movimiento de jerk a un ritmo moderado, descansa entre cada repeticion y evita agitarte.').
 
 rutinas_db(halterofilia, avanzado, quebradurapierna,
 	'No recomiendo hacer halterofilia con un brazo quebrado, pero te recomiendo para mantener la fuerza y condicion, que realices 25 series de 5 sentadillas y 5
