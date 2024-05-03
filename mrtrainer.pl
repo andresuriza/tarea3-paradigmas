@@ -889,6 +889,10 @@ rutinas_db(crossfit, principiante, X).
 rutinas_db(crossfit, intermedio, X).
 rutinas_db(crossfit, avanzado, X).
 
+rutinas_db(halterofilia, principiante, X).
+rutinas_db(halterofilia, intermedio, X).
+rutinas_db(halterofilia, avanzado, X).
+
 %rutinas principiante atletismo
 rutinas_db(atletismo,principiante,bien,
 	'Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 2 vueltas a la pista caminando a alta velocidad
