@@ -17,7 +17,7 @@ inicio_conversacion:-
 	gen_respuesta(Input,Respuesta),
 	imprimir_nombre(yo),
 	write_list(Respuesta),
-	despedida(Input), !, halt.
+	despedida(Input), !,sleep(3), halt.
 
 mr_trainer('MrTrainer').
 cliente('Cliente').
@@ -372,6 +372,7 @@ oracion(s(crossfit))--> [crossfit].
 oracion(s(Z,G,crossfit))--> verb(Z),noun_inf(G),[crossfit].
 oracion(s(Z,G,H,crossfit))--> verb(Z),noun_inf(G),articulo(H),[crossfit].
 oracion(s(X, Y,G,crossfit))--> subject_phrase(X),verb(Y),verb(G),[crossfit].
+oracion(s(X, Y,G,crossfit))--> subject_phrase(X),verb(Y),noun_inf(G),[crossfit].
 oracion(s(X,Y,crossfit))--> verb(X),complemento_d(Y),[crossfit].
 
 %Entradas para atletismo 
@@ -379,6 +380,7 @@ oracion(s(atletismo))--> [atletismo].
 oracion(s(Z,G,F,H,atletismo))--> verb(Z),noun_inf(G),articulo(F),articulo(H),[atletismo].
 oracion(s(Z,G,H,atletismo))--> verb(Z),noun_inf(G),articulo(H),[atletismo].
 oracion(s(X, Y,G,atletismo))--> subject_phrase(X),verb(Y),verb(G),[atletismo].
+oracion(s(X, Y,G,atletismo))--> subject_phrase(X),verb(Y),noun_inf(G),[atletismo].
 oracion(s(X,Y,atletismo))--> verb(X),complemento_d(Y),[atletismo].
 oracion(s(X,Y,atletismo))--> verb(X),noun_inf(Y),[atletismo].
 
@@ -387,6 +389,7 @@ oracion(s(halterofilia))--> [halterofilia].
 oracion(s(Z,G,F,H,halterofilia))--> verb(Z),noun_inf(G),articulo(F),articulo(H),[halterofilia].
 oracion(s(Z,G,H,halterofilia))--> verb(Z),noun_inf(G),articulo(H),[halterofilia].
 oracion(s(X, Y,G,halterofilia))--> subject_phrase(X),verb(Y),verb(G),[halterofilia].
+oracion(s(X, Y,G,halterofilia))--> subject_phrase(X),verb(Y),noun_inf(G),[halterofilia].
 oracion(s(X,Y,halterofilia))--> verb(X),complemento_d(Y),[halterofilia].
 oracion(s(X,Y,halterofilia))--> verb(X),noun_inf(Y),[halterofilia].
 
@@ -567,6 +570,10 @@ mapping(problemas_salud_crossfit,
 			s(sp(X),vb(Y),vb(Z),crossfit), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
+mapping(problemas_salud_crossfit,
+			s(sp(X),vb(Y),noun_inf(Z),crossfit), Respuesta):-
+			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).			
+
 %mapping de atletismo
 mapping(problemas_salud_atletismo,
 			s(atletismo), Respuesta):-
@@ -592,6 +599,10 @@ mapping(problemas_salud_atletismo,
 			s(sp(X),vb(Y),vb(Z),atletismo), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
+mapping(problemas_salud_atletismo,
+			s(sp(X),vb(Y),noun_inf(Z),atletismo), Respuesta):-
+			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
+
 %mapping de halterofilia
 mapping(problemas_salud_halterofilia,
 			s(halterofilia), Respuesta):-
@@ -615,6 +626,10 @@ mapping(problemas_salud_halterofilia,
 
 mapping(problemas_salud_halterofilia,
 			s(sp(X),vb(Y),vb(Z),halterofilia), Respuesta):-
+			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
+
+mapping(problemas_salud_halterofilia,
+			s(sp(X),vb(Y),noun_inf(Z),halterofilia), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
 %mapping condiciones de salud
@@ -868,19 +883,6 @@ respuestas_db(rutina, [
 
 
 
-rutinas_db(atletismo, principiante, X).
-rutinas_db(atletismo, intermedio, X).
-rutinas_db(atletismo, avanzado, X).
-
-
-rutinas_db(crossfit, principiante, X).
-rutinas_db(crossfit, intermedio, X).
-rutinas_db(crossfit, avanzado, X).
-
-rutinas_db(halterofilia, principiante, X).
-rutinas_db(halterofilia, intermedio, X).
-rutinas_db(halterofilia, avanzado, X).
-
 %rutinas principiante atletismo
 rutinas_db(atletismo,principiante,bien,
 	'Estirar por unos 5 minutos las piernas antes de iniciar. Luego dar 2 vueltas a la pista caminando a alta velocidad
@@ -928,27 +930,27 @@ rutinas_db(atletismo,principiante,quebradurapierna,
 
 %rutinas intermedio atletismo
 rutinas_db(atletismo,intermedio, bien,
-	'Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
+	'Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
     Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
     almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.').
 
 rutinas_db(atletismo,intermedio,hipertension,
-	'Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
+	'Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
     Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
     almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.').
 
 rutinas_db(atletismo,intermedio,hernia,
-	'Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
+	'Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
     Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
     almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.').
 
 rutinas_db(atletismo,intermedio,quebradurabrazo,
-	'Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
+	'Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
     Al llegar a los 400m, mantener el ritmo por 800m y luego por 100m disminuir la velocidad hasta detenerse. Para la rutina hacer series de 500 metros
     almenos unas 10 series. Al terminar, recuerda estirar y bajar la velocidad gradualmente para evitar lesiones.').
 
 rutinas_db(atletismo,intermedio, neumonia,
-	'Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
+	'Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
     Sin llegar a mas del 60% y sin hiperventilarte. Al llegar a los 400m, mantener el ritmo por 800m y luego por 
     100m disminuir la velocidad hasta detenerse. Descansa unos minutos para que recuperes el aire. Para la rutina 
     hacer series de 500 metros a un paso moderado, almenos unas 10 series. Al terminar, recuerda estirar y bajar 
@@ -956,7 +958,7 @@ rutinas_db(atletismo,intermedio, neumonia,
     por tu condicion y tomar pausas caminando de ser necesario').
 
 rutinas_db(atletismo,intermedio, asmatico,
-	'Estirar por unos 5 minutos las piernas antes de iniciar. Luegp para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
+	'Estirar por unos 5 minutos las piernas antes de iniciar. Luego para calentar, trotar por 400m incrementando la velocidad un 25% cada 100m 
     Sin llegar a mas del 60% y sin hiperventilarte. Al llegar a los 400m, mantener el ritmo por 800m y luego por 
     100m disminuir la velocidad hasta detenerse. Descansa unos minutos para que recuperes el aire. Para la rutina 
     hacer series de 500 metros a un paso moderado, almenos unas 10 series. Al terminar, recuerda estirar y bajar 
