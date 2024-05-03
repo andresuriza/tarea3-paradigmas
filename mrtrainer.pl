@@ -178,7 +178,10 @@ gen_respuesta(Input, Respuesta):-
 	nivel(Estado),
 	rutinas_db(Sport, Estado, Status, Rutina),
     write(Rutina),
-	nl.
+	nl,
+	retractall(salud(_)),
+	retractall(deporte(_)),
+	retractall(nivel(_)).
 
 gen_respuesta(Input, Respuesta):-
 	oracion(Tree1, Input, _Rest),
@@ -189,7 +192,10 @@ gen_respuesta(Input, Respuesta):-
 	nivel(Estado),
 	rutinas_db(Sport, Estado, Status, Rutina),
     write(Rutina),
-	nl.
+	nl,
+	retractall(salud(_)),
+	retractall(deporte(_)),
+	retractall(nivel(_)).
 
 gen_respuesta(Input, Respuesta):-
 	oracion(Tree1, Input, _Rest),
@@ -200,7 +206,10 @@ gen_respuesta(Input, Respuesta):-
 	nivel(Estado),
 	rutinas_db(Sport, Estado, Status, Rutina),
     write(Rutina),
-	nl.
+	nl,
+	retractall(salud(_)),
+	retractall(deporte(_)),
+	retractall(nivel(_)).
 
 gen_respuesta(Input, Respuesta):-
 	oracion(Tree1, Input, _Rest),
@@ -211,7 +220,10 @@ gen_respuesta(Input, Respuesta):-
 	nivel(Estado),
 	rutinas_db(Sport, Estado, Status, Rutina),
     write(Rutina),
-	nl.
+	nl,
+	retractall(salud(_)),
+	retractall(deporte(_)),
+	retractall(nivel(_)).
 
 gen_respuesta(Input, Respuesta):-
 	oracion(Tree1, Input, _Rest),
@@ -222,7 +234,10 @@ gen_respuesta(Input, Respuesta):-
 	nivel(Estado),
 	rutinas_db(Sport, Estado, Status, Rutina),
     write(Rutina),
-	nl.
+	nl,
+	retractall(salud(_)),
+	retractall(deporte(_)),
+	retractall(nivel(_)).
 
 gen_respuesta(Input, Respuesta):-
 	oracion(Tree1, Input, _Rest),
@@ -233,7 +248,10 @@ gen_respuesta(Input, Respuesta):-
 	nivel(Estado),
 	rutinas_db(Sport, Estado, Status, Rutina),
     write(Rutina),
-	nl.
+	nl,
+	retractall(salud(_)),
+	retractall(deporte(_)),
+	retractall(nivel(_)).
 
 gen_respuesta(Input, Respuesta):-
 	oracion(Tree1, Input, _Rest),
@@ -244,7 +262,10 @@ gen_respuesta(Input, Respuesta):-
 	nivel(Estado),
 	rutinas_db(Sport, Estado, Status, Rutina),
     write(Rutina),
-	nl.
+	nl,
+	retractall(salud(_)),
+	retractall(deporte(_)),
+	retractall(nivel(_)).
 
 gen_respuesta(Input, Respuesta):-
 	oracion(Tree1, Input, _Rest),
@@ -255,7 +276,10 @@ gen_respuesta(Input, Respuesta):-
 	nivel(Estado),
 	rutinas_db(Sport, Estado, Status, Rutina),
     write(Rutina),
-	nl.
+	nl,
+	retractall(salud(_)),
+	retractall(deporte(_)),
+	retractall(nivel(_)).
 
 gen_respuesta(Input, Respuesta):-
 	oracion(Tree1, Input, _Rest),
@@ -329,7 +353,8 @@ oracion(s(X, neumonia))-->verb(X), [neumonia].
 oracion(s(cerol, X))-->[0], noun(X).
 oracion(s(cero, X))-->[cero], noun(X).
 oracion(s(1, X))-->[1], noun(X).
-oracion(s(uno, X))-->[uno], noun(X).
+oracion(s(un, X))-->[un], noun(X).
+oracion(s(una, X))-->[una], noun(X).
 oracion(s(2, X))-->[2], noun(X).
 oracion(s(dos, X))-->[dos], noun(X).
 oracion(s(3, X))-->[3], noun(X).
@@ -345,22 +370,27 @@ oracion(s(siete, X))-->[siete], noun(X).
 
 
 %Entradas para crossfit 
+oracion(s(crossfit))--> [crossfit].
 oracion(s(Z,G,crossfit))--> verb(Z),noun_inf(G),[crossfit].
 oracion(s(Z,G,H,crossfit))--> verb(Z),noun_inf(G),articulo(H),[crossfit].
 oracion(s(X, Y,G,crossfit))--> subject_phrase(X),verb(Y),verb(G),[crossfit].
 oracion(s(X,Y,crossfit))--> verb(X),complemento_d(Y),[crossfit].
 
 %Entradas para atletismo 
+oracion(s(atletismo))--> [atletismo].
 oracion(s(Z,G,F,H,atletismo))--> verb(Z),noun_inf(G),articulo(F),articulo(H),[atletismo].
 oracion(s(Z,G,H,atletismo))--> verb(Z),noun_inf(G),articulo(H),[atletismo].
 oracion(s(X, Y,G,atletismo))--> subject_phrase(X),verb(Y),verb(G),[atletismo].
 oracion(s(X,Y,atletismo))--> verb(X),complemento_d(Y),[atletismo].
+oracion(s(X,Y,atletismo))--> verb(X),noun_inf(Y),[atletismo].
 
 %Entradas para halterofilia
+oracion(s(halterofilia))--> [halterofilia].
 oracion(s(Z,G,F,H,halterofilia))--> verb(Z),noun_inf(G),articulo(F),articulo(H),[halterofilia].
 oracion(s(Z,G,H,halterofilia))--> verb(Z),noun_inf(G),articulo(H),[halterofilia].
 oracion(s(X, Y,G,halterofilia))--> subject_phrase(X),verb(Y),verb(G),[halterofilia].
 oracion(s(X,Y,halterofilia))--> verb(X),complemento_d(Y),[halterofilia].
+oracion(s(X,Y,halterofilia))--> verb(X),noun_inf(Y),[halterofilia].
 
 oracion(s(X,Y,Z,G))--> verb(X),articulo(Y),noun(Z),nivel(G).
 
@@ -515,8 +545,14 @@ adjetivo(adj(roto))-->[roto].
 adjetivo(adj(rotos))-->[rotos].
 adjetivo(adj(rota))-->[rota].
 adjetivo(adj(rotas))-->[rotas].
+adjetivo(adj(quebrado))-->[quebrado].
+adjetivo(adj(quebrados))-->[quebrados].
 
 %mapping de crossfit
+mapping(problemas_salud_crossfit,
+			s(crossfit), Respuesta):-
+			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
+
 mapping(problemas_salud_crossfit,
 			s(vb(X),noun_inf(Y),crossfit), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
@@ -535,7 +571,15 @@ mapping(problemas_salud_crossfit,
 
 %mapping de atletismo
 mapping(problemas_salud_atletismo,
+			s(atletismo), Respuesta):-
+			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
+
+mapping(problemas_salud_atletismo,
 			s(vb(X),noun_inf(Y),art([Z]),art([W]),atletismo), Respuesta):-
+			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
+
+mapping(problemas_salud_atletismo,
+			s(vb(X),noun_inf(Y),atletismo), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
 mapping(problemas_salud_atletismo,
@@ -552,6 +596,10 @@ mapping(problemas_salud_atletismo,
 
 %mapping de halterofilia
 mapping(problemas_salud_halterofilia,
+			s(halterofilia), Respuesta):-
+			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
+
+mapping(problemas_salud_halterofilia,
 			s(vb(X),noun_inf(Y),art([Z]),art([W]),halterofilia), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
@@ -561,6 +609,10 @@ mapping(problemas_salud_halterofilia,
 
 mapping(problemas_salud_halterofilia,
 			s(vb(X),noun_inf(Y),art([Z]),halterofilia), Respuesta):-
+			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
+
+mapping(problemas_salud_halterofilia,
+			s(vb(X),noun_inf(Y),halterofilia), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
 mapping(problemas_salud_halterofilia,
@@ -649,7 +701,11 @@ mapping(uno,
 			respuestas_db(rutina, Res), selec_rand(Res, Respuesta).
 
 mapping(uno,
-			s(uno, noun(X)), Respuesta):-
+			s(un, noun(X)), Respuesta):-
+			respuestas_db(rutina, Res), selec_rand(Res, Respuesta).
+
+mapping(uno,
+			s(una, noun(X)), Respuesta):-
 			respuestas_db(rutina, Res), selec_rand(Res, Respuesta).
 
 mapping(dos,
@@ -809,10 +865,10 @@ gracias_db([
 
 % Posibles mensajes de saludo de mrtrainer
 respuestas_db(saludo, [
-	['Cuenteme En que lo puedo ayudar?'],
+	['Hola, quieres practicar crossfit, atletismo o halterofilia?'],
 	['Hola, listo para ayudar'],
-	['Buenas, como esta?'],
-	['Hola soy Mr. Trainer, a su servicio']
+	['Buenas, que deporte practicas?'],
+	['Hola soy Mr. Trainer, vamos a entrenar :D']
 	]).
 
 % Posibles respuestas a gracias de mrtrainer
