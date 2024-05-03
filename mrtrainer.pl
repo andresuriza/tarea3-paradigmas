@@ -274,13 +274,10 @@ gen_respuesta(Input, Respuesta):-
 
 gen_respuesta(Input, Respuesta):-
 	oracion(Tree1, Input, _Rest),
-	mapping(problemas_salud_atletismo, Tree1, Respuesta),
+	mapping(problemas_salud_atletismo, Tree1, Respuesta),!,
 	assertz(deporte(atletismo)). % Hecho dinamico
 
-gen_respuesta(Input, Respuesta):-
-	oracion(Tree1, Input, _Rest), !, % Ultimo posible caso de oracion lleva '!' para evitar backtracking
-	mapping(problemas_salud_halterofilia, Tree1, Respuesta),
-	assertz(deporte(halterofilia)). % Hecho dinamico
+
 
 
 % Regla que regresa a partir de una lista el valor del �ndice
@@ -329,7 +326,7 @@ oracion(s(X, Y, brazos, B))-->verb(X), articulo(Y), [brazos], adjetivo(B).
 oracion(s(X, brazo, Z, B))-->articulo(X), [brazo], verb(Z), adjetivo(B).
 oracion(s(X, brazos, Z, B))-->articulo(X), [brazos], verb(Z), adjetivo(B).
 oracion(s(X, neumonia))-->verb(X), [neumonia].
-oracion(s(0, X))-->[0], noun(X).
+oracion(s(cerol, X))-->[0], noun(X).
 oracion(s(cero, X))-->[cero], noun(X).
 oracion(s(1, X))-->[1], noun(X).
 oracion(s(uno, X))-->[uno], noun(X).
@@ -342,24 +339,28 @@ oracion(s(cuatro, X))-->[cuatro], noun(X).
 oracion(s(5, X))-->[5], noun(X).
 oracion(s(cinco, X))-->[cinco], noun(X).
 oracion(s(6, X))-->[6], noun(X).
-oracion(s(seis, X))-->[sei], noun(X).
+oracion(s(seis, X))-->[seis], noun(X).
 oracion(s(7, X))-->[7], noun(X).
 oracion(s(siete, X))-->[siete], noun(X).
+
 
 %Entradas para crossfit 
 oracion(s(Z,G,crossfit))--> verb(Z),noun_inf(G),[crossfit].
 oracion(s(Z,G,H,crossfit))--> verb(Z),noun_inf(G),articulo(H),[crossfit].
 oracion(s(X, Y,G,crossfit))--> subject_phrase(X),verb(Y),verb(G),[crossfit].
+oracion(s(X,Y,crossfit))--> verb(X),complemento_d(Y),[crossfit].
 
 %Entradas para atletismo 
 oracion(s(Z,G,F,H,atletismo))--> verb(Z),noun_inf(G),articulo(F),articulo(H),[atletismo].
 oracion(s(Z,G,H,atletismo))--> verb(Z),noun_inf(G),articulo(H),[atletismo].
 oracion(s(X, Y,G,atletismo))--> subject_phrase(X),verb(Y),verb(G),[atletismo].
+oracion(s(X,Y,atletismo))--> verb(X),complemento_d(Y),[atletismo].
 
 %Entradas para halterofilia
 oracion(s(Z,G,F,H,halterofilia))--> verb(Z),noun_inf(G),articulo(F),articulo(H),[halterofilia].
 oracion(s(Z,G,H,halterofilia))--> verb(Z),noun_inf(G),articulo(H),[halterofilia].
 oracion(s(X, Y,G,halterofilia))--> subject_phrase(X),verb(Y),verb(G),[halterofilia].
+oracion(s(X,Y,halterofilia))--> verb(X),complemento_d(Y),[halterofilia].
 
 oracion(s(X,Y,Z,G))--> verb(X),articulo(Y),noun(Z),nivel(G).
 
@@ -446,6 +447,8 @@ noun(noun(munecas)) --> [munecas].
 
 noun(noun(dia)) --> [dia].
 noun(noun(dias)) --> [dias].
+noun(noun(vez)) --> [vez].
+noun(noun(veces)) --> [veces].
 
 
 noun_inf(noun_inf(correr)) --> [correr].
@@ -465,7 +468,6 @@ complemento_d(c_d(comenzar)) --> [comenzar].
 complemento_d(c_d(aprender)) --> [aprender].
 complemento_d(c_d(motivado)) --> [motivado].
 complemento_d(c_d(arrancar)) --> [arrancar].
-complemento_d(c_d(practicar)) --> [practicar].
 complemento_d(c_d(hacer)) --> [hacer].
 complemento_d(c_d(correr)) --> [correr].
 
@@ -514,45 +516,7 @@ adjetivo(adj(rotos))-->[rotos].
 adjetivo(adj(rota))-->[rota].
 adjetivo(adj(rotas))-->[rotas].
 
-%mapping(s2why,
- %       s(sp(spn(N1)),vb(V),op(opn(N2),ad(X))),
-  %      q(why,do,s(sp(spn(P1)),vb(V),op(opn(P2),ad(X))))
-   %     ) :-
-    %    mapping_spn(N1, P1), mapping_opn(N2, P2).
-
-
-
-%mapping(inicio_ases,
-%		s(sp(spn(X)),vb(Y1),c_d(Z),art(F),c_d(G),noun(H)),	
-%		[excelente, iniciativa, iniciemos]
-%		).
-
-%mapping(inicio_ases,
-%		s(sp(spn(X)),vb(Y1),c_d(H)),	
-%		[excelente, iniciativa, iniciemos]
-%		).
-
-%mapping(inicio_ases,
-%			s(sp(spn(X)),vb(Y1),c_d(Z),art(F),noun(H)),	
-%			[excelente, iniciativa, iniciemos]
-%			).
-
-%mapping(inicio_ases,
-%			s(vb(X),c_d(Y1),art(F),noun(H)),	
-%			[excelente, iniciativa, iniciemos]
-%			).
-
-% ---------------- COMENTADO PARA EVITAR CONFLICTOS ENTRE MAPPING -------------
-% Ver que es el mismo caso de oracion del mapping prueba_db	
-%mapping(inicio_ases,
-%			s(vb(X),c_d(Y1),a,noun_inf(H)),	
-%			[excelente, iniciativa, iniciemos]
-%			).
-
-%mapping(prueba_db,
-%	s(vb(X),c_d(Y1),a,noun_inf(H)),	Respuesta):- 
-%		prueba_db(test, Res), selec_rand(Res, Respuesta). % Selecciona random, idealmente tendra varias opciones, igual sirve con 1
-
+%mapping de crossfit
 mapping(problemas_salud_crossfit,
 			s(vb(X),noun_inf(Y),crossfit), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
@@ -562,9 +526,14 @@ mapping(problemas_salud_crossfit,
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
 mapping(problemas_salud_crossfit,
+			s(vb(X),c_d(Y), crossfit), Respuesta):-
+			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
+
+mapping(problemas_salud_crossfit,
 			s(sp(X),vb(Y),vb(Z),crossfit), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
+%mapping de atletismo
 mapping(problemas_salud_atletismo,
 			s(vb(X),noun_inf(Y),art([Z]),art([W]),atletismo), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
@@ -574,11 +543,20 @@ mapping(problemas_salud_atletismo,
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
 mapping(problemas_salud_atletismo,
+			s(vb(X),c_d(Y), atletismo), Respuesta):-
+			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
+
+mapping(problemas_salud_atletismo,
 			s(sp(X),vb(Y),vb(Z),atletismo), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
+%mapping de halterofilia
 mapping(problemas_salud_halterofilia,
 			s(vb(X),noun_inf(Y),art([Z]),art([W]),halterofilia), Respuesta):-
+			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
+
+mapping(problemas_salud_halterofilia,
+			s(vb(X),c_d(Y), halterofilia), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
 mapping(problemas_salud_halterofilia,
@@ -589,6 +567,8 @@ mapping(problemas_salud_halterofilia,
 			s(sp(X),vb(Y),vb(Z),halterofilia), Respuesta):-
 			respuestas_db(enfermedad, Res), selec_rand(Res, Respuesta).
 
+%mapping condiciones de salud
+%mapping de bien de salud
 mapping(buen_salud,
 			s(no, vb(X), nada), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
@@ -597,6 +577,7 @@ mapping(buen_salud,
 			s(no, vb(X), ningun, padecimiento), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
 
+%mapping de salud asmatico
 mapping(asmatico,
 			s(vb(X), asma), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
@@ -605,14 +586,17 @@ mapping(asmatico,
 			s(vb(X), asmatico), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
 
+%mapping de salud hipertension
 mapping(hipertension,
 			s(vb(X), hipertension), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
 
+%mapping de salud hernia
 mapping(hernia,
 			s(vb(X), art(Y), hernia), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
 
+%mapping de salud quebradura de pierna
 mapping(quebradurapierna,
 			s(vb(X), art([Y]), pierna, adj(B)), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
@@ -629,6 +613,7 @@ mapping(quebradurapierna,
 			s(art([X]), piernas, vb(Y), adj(B)), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
 
+%mapping de salud quebradura de brazo
 mapping(quebradurabrazo,
 			s(vb(X), art([Y]), brazo, adj(B)), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
@@ -645,12 +630,14 @@ mapping(quebradurabrazo,
 			s(art([X]), brazos, vb(Y), adj(B)), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
 
+%mapping de salud neumonia
 mapping(neumonia,
 			s(vb(X), neumonia), Respuesta):-
 			respuestas_db(salud, Res), selec_rand(Res, Respuesta).
 
+%mapping de numeros
 mapping(cero,
-			s(0, noun(X)), Respuesta):-
+			s(cerol, noun(X)), Respuesta):-
 			respuestas_db(rutina, Res), selec_rand(Res, Respuesta).
 
 mapping(cero,
