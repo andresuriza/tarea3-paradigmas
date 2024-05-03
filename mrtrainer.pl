@@ -318,10 +318,8 @@ selec_rand(Res, Respuesta):-
 	random(1, Upper, Rand),
 	nth_item(Res, Rand, Respuesta).
 
-% ------------ Definiciones de Definite Clause Grammar para
-% gram�tica libre de contexto ------------------------
-%oracion(s(X,Y, is, Z)) --> belonging_phrase(X), abstract_noun(Y),
-                            % [is],  special_noun(Z).
+% ------------ Definiciones de gramatica de oraciones
+% gramatica libre de contexto ------------------------
 
 oracion(s(X, Y,Z,F,H))--> subject_phrase(X),verb(Y),complemento_d(Z),articulo(F),noun(H).
 oracion(s(X, Y,Z,F,G,H))--> subject_phrase(X),verb(Y),complemento_d(Z),articulo(F),complemento_d(G),noun(H).
@@ -756,54 +754,6 @@ mapping(siete,
 			s(siete, noun(X)), Respuesta):-
 			respuestas_db(rutina, Res), selec_rand(Res, Respuesta).
 
-%mapping(inicio_ases,
-%			s(si,vb(X),vb(Y),art(Z),noun(H)),	
-%			[excelente, iniciativa, iniciemos]
-%			).
-
-
-%mapping(inicio_ases,
-%			s(sp(spn(X)),vb(Y1),c_d(Z),art(F),noun_inf(H)),	
-%			[excelente, iniciativa, iniciemos]
-%			).
-
-%mapping(inicio_ases,
-%			s(sp(spn(X)),vb(Y1),noun_inf(H)),	
-%			[excelente, iniciativa, iniciemos]
-%			).
-
-
-%mapping(inicio_ases,
-%			s(sp(spn(X)),vb(Y1),vb(Z),noun_inf(H)),	
-%			[excelente, iniciativa, iniciemos]
-%			).
-
-%mapping(inicio_ases,
-%			s(vb(Y1),noun_inf(H)),	
-%			[excelente, iniciativa, iniciemos]
-%			).
-
-%mapping(inicio_ases,
-%			s(vb(X),art(Y),noun(Z),niv(G)),	
-%			[excelente, iniciativa, iniciemos]
-%			).
-	
-
-
-mapping_belong(mi,tuyo).
-mapping_belong(tuyo,mi).
-
-mapping_noun(name, frank).
-mapping_noun(frank, name).
-
-mapping_indicative(are, am).
-mapping_indicative(am, are).
-
-mapping_spn(i, you).
-mapping_spn(you, i).
-
-mapping_opn(you,me).
-mapping_opn(me,you).
 
 %busca palabras clave
 busq_clave([], _, []).
@@ -868,7 +818,7 @@ respuestas_db(saludo, [
 	['Hola, quieres practicar crossfit, atletismo o halterofilia?'],
 	['Hola, listo para ayudar'],
 	['Buenas, que deporte practicas?'],
-	['Hola soy Mr. Trainer, vamos a entrenar :D']
+	['Hola soy Mr. Trainer, vamos a entrenar!']
 	]).
 
 % Posibles respuestas a gracias de mrtrainer
@@ -915,11 +865,6 @@ respuestas_db(rutina, [
 	['Con base en los datos que me diste te puedo sugerir esta rutina'],
 	['Me parece que esta rutina se adapta a tus necesidades']
 	]).
-prueba_db(test, [['Este es un string predefinido, puede ser random']]).
-
-prueba2_db(test, [['¿Tienes algún problema de salud?']]).
-
-prueba3_db(test, hola).
 
 
 
